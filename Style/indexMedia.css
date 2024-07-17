@@ -71,6 +71,9 @@
 @media (max-width: 450px) {
   .description {
     flex-direction: column;
+    display: flex;
+    margin: 5vw 16vw;
+    gap: 13vw;
   }
 
   .heading p {
