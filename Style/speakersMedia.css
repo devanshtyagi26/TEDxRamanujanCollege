@@ -1,0 +1,60 @@
+@media (max-width: 940px) {
+  .block {
+    margin: 3rem 6rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .content {
+    max-width: 80vw;
+  }
+  .displaySpeaker {
+    margin-top: 7rem;
+  }
+  .fullname {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+  #surname {
+    font-size: 3rem;
+  }
+  #title {
+    font-size: 1rem;
+  }
+
+  .circle {
+    width: 1.55rem;
+    height: 1.55rem;
+  }
+  .heading {
+    margin-left: 2rem;
+  }
+  #desc {
+    font-size: 1.2rem;
+  }
+  .speakerImage {
+    position: absolute;
+    right: 3rem;
+    transform: scale(1.5);
+  }
+
+  #otherSpeakers h1 {
+    font-size: 2rem;
+  }
+  .speakers {
+    align-items: center;
+    margin: 0 auto;
+    max-width: 85vw;
+    justify-content: space-between;
+  }
+  #otherSpeakers span {
+    width: 7rem;
+    height: 0.2rem;
+    bottom: 0.3rem;
+    left: 0.5rem;
+  }
+  .block {
+    margin: -3rem -3rem;
+    transform: scale(0.6);
+  }
+}

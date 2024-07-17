@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=KoHo&family=Rowdies:wght@700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: fixed url(../Images/BlackBackground.svg);
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+nav {
+  background-color: black;
+}
+
+section {
+  display: flex;
+  max-height: 100vh;
+  width: 100vw;
+
+  color: #272727;
+  padding: 13vw 0rem;
+}
+
+#SpeakerDesc {
+  justify-content: center;
+  align-items: center;
+}
+
+.displaySpeaker {
+  display: flex;
+  max-height: 100vh;
+}
+
+.content {
+  max-width: 50vw;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.fullname {
+  color: #fff;
+  font-family: "Rowdies";
+  font-weight: 700;
+  font-style: normal;
+  font-size: 4rem;
+  display: flex;
+  flex-direction: column;
+  line-height: 4rem;
+}
+
+#surname {
+  font-size: 5rem;
+}
+
+#title {
+  color: #ff0145;
+  font-family: KoHo;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.0625rem;
+}
+
+.handles {
+  display: flex;
+  gap: 1rem;
+}
+
+.circle {
+  width: 2.25rem;
+  height: 2.25rem;
+  background-color: white;
+  border-radius: 50px;
+}
+
+#desc {
+  color: #fff;
+  font-family: KoHo;
+  font-size: 1.5625rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.speakerImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 100vh;
+}
+.speakerImage img {
+  max-height: 30vw;
+  width: 22vw;
+  transform: rotateY(180deg);
+}
+
+#otherSpeakers {
+  /* background-color: wheat; */
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5rem;
+}
+
+#otherSpeakers h1 {
+  color: #ff0145;
+  font-family: Rowdies;
+  font-size: 5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+#otherSpeakers span {
+  width: 18rem;
+  height: 0.3rem;
+  background: white;
+  position: relative;
+  bottom: 0.8rem;
+  left: 1rem;
+  z-index: -1;
+}
+
+.speakers {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.block {
+  width: 15.975rem;
+  height: 23.125rem;
+  background-color: white;
+  margin: 3rem 8rem;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  background: red;
+  width: 13em;
+  height: 17em;
+  position: relative;
+}
+
+.block .content {
+  font-family: "Rowdies";
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  line-height: 1rem;
+}

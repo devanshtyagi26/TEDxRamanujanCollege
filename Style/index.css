@@ -12,7 +12,8 @@
 }
 
 body {
-  background: no-repeat url(../Images/BlackBackground.svg);
+  background: fixed url(../Images/BlackBackground.svg);
+  background-size: cover;
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
@@ -99,6 +100,13 @@ section {
   font-weight: 300;
 }
 
+#timer {
+  align-items: baseline;
+}
+#timer img {
+  width: 50vw;
+  padding-top: 5rem;
+}
 .button a {
   position: fixed;
   bottom: 20px;

@@ -1,11 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Speakers</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="Style/nav.css" />
+    <link rel="stylesheet" href="Style/speakers.css" />
+    <link rel="stylesheet" href="Style/navMedia.css" />
+    <link rel="stylesheet" href="Style/speakersMedia.css" />
+  </head>
+  <body>
+    <label id="overlay" for="sidebar"></label>
+    <nav>
+      <input type="checkbox" name="ham" id="sidebar" />
+      <label for="sidebar"
+        ><img src="Images/Hamburger.svg" class="white open-sidebar"
+      /></label>
+
+      <div class="navbar">
+        <div class="logo">
+          <img src="Images/TedxLogo.svg" alt="TEDx Logo" />
+        </div>
+
+        <ul class="menu">
+          <label for="sidebar"
+            ><img src="Images/Close.svg" alt="" class="white close-sidebar"
+          /></label>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="#">SPEAKERS</a></li>
+          <li><a href="team.html">OUR TEAM</a></li>
+          <li><a href="#Contact">SPONSORS</a></li>
+          <li><a href="contactUs.html">CONTACT US</a></li>
+          <li id="Register"><a href="#Register">REGISTER</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="SpeakerDesc">
+      <div class="displaySpeaker">
+        <div class="content">
+          <div class="fullname">
+            <p id="name">Your</p>
+            <p id="surname">Name</p>
+          </div>
+          <p id="title">Post/Title Here abcxyz</p>
+          <div class="handles">
+            <div class="circle" id="insta"></div>
+            <div class="circle" id="fb"></div>
+            <div class="circle" id="linkedin"></div>
+          </div>
+          <p id="desc">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas
+            beatae debitis, veniam iure molestiae quis placeat mollitia
+            consequatur cumque deserunt, officia odio laborum iste nisi quaerat
+            labore autem harum esse necessitatibus quo dolores. Dicta adipisci,
+            quia officiis minima facilis quo nihil illo odit ipsa expedita
+            blanditiis ab! Odio, iure voluptate!
+          </p>
+        </div>
+        <div class="speakerImage">
+          <img src="Images/Sample.png" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <section id="otherSpeakers">
+      <div class="heading">
+        <h1>Our Speakers</h1>
+        <span></span>
+      </div>
+
+      <div class="speakers">
+        <div class="block" id="s1">
+          <div class="image"></div>
+          <div class="content">
+            <p>Your</p>
+            <p>Name</p>
+          </div>
+        </div>
+        <div class="block" id="s2">
+          <div class="image"></div>
+          <div class="content">
+            <p>Your</p>
+            <p>Name</p>
+          </div>
+        </div>
+        <div class="block" id="s3">
+          <div class="image"></div>
+          <div class="content">
+            <p>Your</p>
+            <p>Name</p>
+          </div>
+        </div>
+        <div class="block" id="s4">
+          <div class="image"></div>
+          <div class="content">
+            <p>Your</p>
+            <p>Name</p>
+          </div>
+        </div>
+        <div class="block" id="s5">
+          <div class="image"></div>
+          <div class="content">
+            <p>Your</p>
+            <p>Name</p>
+          </div>
+        </div>
+        <div class="block" id="s6">
+          <div class="image"></div>
+          <div class="content">
+            <p>Your</p>
+            <p>Name</p>
+          </div>
+        </div>
+        <div class="block" id="s7">
+          <div class="image"></div>
+          <div class="content">
+            <p>Your</p>
+            <p>Name</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
