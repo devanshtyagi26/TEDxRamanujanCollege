@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=KoHo:wght@200&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  overflow-x: hidden;
+}
+
+body {
+  background: no-repeat url(../Images/BlackBackground.svg);
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+
+
+section {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  color: #272727;
+}
+
+#Home {
+  color: #ff0145;
+  font-family: "KoHo", sans-serif;
+  font-size: 1.1875rem;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  letter-spacing: 1.38rem;
+  gap: 2rem;
+}
+
+.heading {
+  display: inline-flex;
+  width: 58vw;
+  gap: 2rem;
+}
+.change {
+  position: relative;
+  width: 39vw;
+}
+.whiteLine {
+  color: white;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s all ease-out;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+#About {
+  background: #f2f2f2;
+  gap: 12rem;
+}
+
+.heading-big {
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 300;
+}
+
+#redLine {
+  background-color: #e62b1e;
+  width: 80px;
+  height: 4px;
+  margin: 2px 0 13px;
+  display: block;
+}
+
+.para {
+  font-size: 17px;
+  font-weight: 230;
+  line-height: 24px;
+}
+.aboutTEDx {
+  border: 2px solid black;
+  padding: 2rem;
+}
+.heading-small {
+  font-size: 20px;
+  line-height: 34px;
+  font-weight: 300;
+}
+
+.button a {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15);
+}
