@@ -6,8 +6,10 @@
     <title>TEDx Ramanujan College</title>
     <link rel="stylesheet" href="Style/index.css" />
     <link rel="stylesheet" href="Style/nav.css" />
+    <link rel="stylesheet" href="Style/footer.css" />
     <link rel="stylesheet" href="Style/indexMedia.css" />
     <link rel="stylesheet" href="Style/navMedia.css" />
+    <link rel="stylesheet" href="Style/footerMedia.css" />
   </head>
   <body>
     <label id="overlay" for="sidebar"></label>
@@ -82,10 +84,41 @@
       </div>
     </section>
     <section id="timer">
-      <img src="Images/ticketSample.svg" alt="" />
+      <div class="countdown">
+        <span></span>
+        <div class="cell day">
+          <h2 id="day">00</h2>
+          <p>Days</p>
+        </div>
+        <div class="cell hour">
+          <h2 id="hour">00</h2>
+          <p>Hours</p>
+        </div>
+        <div class="cell minute">
+          <h2 id="minute">00</h2>
+          <p>Minutes</p>
+        </div>
+        <div class="cell second">
+          <h2 id="second">00</h2>
+          <p>Seconds</p>
+        </div>
+      </div>
+    </section>
+    <section id="footer">
+      <div class="footLogo">
+        <img src="Images/TedxLogoWhite.svg" alt="" />
+        <p>
+          This independent TEDx event is operated under license from TED.
+          Copyright Stichting TEDxRamanujanCollege, 2024. All Rights Reserved.
+        </p>
+      </div>
+      <div class="links">
+        <div class="box linkedIn"></div>
+        <div class="box insta"></div>
+      </div>
     </section>
     <div class="button">
-      <a href="#Home"><img src="Images/TopArrow.svg" alt="Top Arrow" /></a>
+      <a href="#Home"><img src="Images/ArrowUp.svg" alt="Top Arrow" /></a>
     </div>
     <script src="JavaScript/index.js"></script>
   </body>

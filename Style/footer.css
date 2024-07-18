@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Jomhuria&display=swap");
+
+#footer {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-height: 10vw;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+  padding: 3rem 0;
+}
+
+.footLogo {
+  width: 35%;
+}
+.footLogo img {
+  width: 35%;
+}
+
+.footLogo p {
+  margin-left: 0.6rem;
+  font-size: clamp(6px, 0.9vw, 13px);
+}
+.links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.links .box {
+  width: 2rem;
+  height: 2rem;
+}
+
+.links .linkedIn {
+  background: no-repeat url(../Images/LinkedIn.svg);
+  background-size: contain;
+}
+.links .insta {
+  background: no-repeat url(../Images/Instagram.svg);
+  background-size: contain;
+}

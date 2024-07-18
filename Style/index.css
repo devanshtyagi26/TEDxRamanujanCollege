@@ -1,13 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=KoHo:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jomhuria&display=swap");
+
 * {
   margin: 0;
   padding: 0;
-  font-family: "Noto Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 100;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
   overflow-x: hidden;
 }
 
@@ -47,13 +44,16 @@ section {
 .change {
   position: relative;
   width: 39vw;
+  overflow: hidden;
 }
+
 .whiteLine {
   color: white;
   position: absolute;
   opacity: 0;
   visibility: hidden;
   transition: 0.4s all ease-out;
+  overflow: hidden;
 }
 
 .visible {
@@ -64,6 +64,11 @@ section {
 #About {
   background: #f2f2f2;
   height: max-content;
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
 }
 .description {
   display: flex;
@@ -75,6 +80,7 @@ section {
   font-size: 28px;
   line-height: 34px;
   font-weight: 300;
+  overflow: hidden;
 }
 
 #redLine {
@@ -101,15 +107,54 @@ section {
 }
 
 #timer {
-  align-items: baseline;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 30vw;
+  overflow: hidden;
 }
-#timer img {
-  width: 50vw;
-  padding-top: 5rem;
+
+.countdown {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 47vw;
+  height: 13vw;
+  background: no-repeat url(../Images/Ticket.svg);
+  background-size: contain;
+  gap: 2.2vw;
 }
+
+.cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: "Jomhuria", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1rem, 2.2vw, 61rem);
+  letter-spacing: 0.37625rem;
+}
+
+.cell h2 {
+  font-size: clamp(2rem, 5.2vw, 39rem);
+  letter-spacing: 0.43rem;
+  overflow: hidden;
+}
+
 .button a {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  box-shadow: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+  background-color: black;
+  border-radius: 5px;
+  height: 23px;
+  width: 23px;
+}
+
+#footer {
+  padding: 0 !important;
 }

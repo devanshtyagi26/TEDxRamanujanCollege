@@ -1,6 +1,51 @@
-@media (max-width: 990px) {
+@media (max-width: 450px) {
   nav .navbar .menu {
     gap: 1vw;
+  }
+  .countdown {
+    width: 73vw;
+    height: 20vw;
+    gap: 3vw;
+  }
+  .cell {
+    height: 57%;
+    overflow: hidden;
+    position: relative;
+    top: -5px;
+  }
+  .cell h2 {
+    letter-spacing: 0.1rem;
+    overflow: hidden;
+  }
+  .cell p {
+    letter-spacing: 0.1rem;
+    overflow: hidden;
+  }
+
+  
+}
+
+@media (max-width: 990px) and (orientation: landscape) {
+  .countdown {
+    width: 73vw;
+    height: 20vw;
+    gap: 3vw;
+  }
+  .cell {
+    height: 57%;
+    overflow: hidden;
+    position: relative;
+    top: -17px;
+  }
+  .cell h2 {
+    letter-spacing: 0.3rem;
+    font-size: clamp(3rem, 10.2vw, 56rem);
+    overflow: hidden;
+  }
+  .cell p {
+    letter-spacing: 0.3rem;
+    font-size: clamp(0.5rem, 3.2vw, 39rem);
+    overflow: hidden;
   }
 }
 
@@ -33,5 +78,12 @@
   .heading p {
     font-size: 1rem;
     letter-spacing: 0.5rem;
+  }
+
+  .cell h2 {
+    letter-spacing: 0.1rem;
+  }
+  .cell p {
+    letter-spacing: 0.1rem;
   }
 }

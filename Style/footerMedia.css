@@ -1,0 +1,19 @@
+@media (max-width: 450px) {
+  #footer {
+    max-height: 40vw;
+  }
+  .footLogo {
+    width: 75%;
+  }
+  .footLogo p {
+    margin-left: 0.3rem;
+  }
+  .links {
+    gap: 1rem;
+  }
+
+  .links .box {
+    width: 1rem;
+    height: 1rem;
+  }
+}

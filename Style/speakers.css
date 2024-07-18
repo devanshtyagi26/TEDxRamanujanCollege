@@ -102,9 +102,9 @@ section {
 }
 
 #otherSpeakers {
-  /* background-color: wheat; */
   display: flex;
   flex-direction: column;
+  max-height: fit-content;
 }
 
 .heading {
@@ -135,7 +135,6 @@ section {
 .speakers {
   display: flex;
   flex-wrap: wrap;
-  
 }
 
 .block {
@@ -163,4 +162,15 @@ section {
   display: flex;
   flex-direction: column;
   line-height: 1rem;
+}
+
+.button a {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+  background-color: black;
+  border-radius: 5px;
+  height: 23px;
+  width: 23px;
 }
