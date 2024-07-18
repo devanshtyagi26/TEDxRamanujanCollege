@@ -37,7 +37,9 @@
     right: 3rem;
     transform: scale(1.5);
   }
-
+  #otherSpeakers {
+    margin-top: 3rem;
+  }
   #otherSpeakers h1 {
     font-size: 2rem;
   }
