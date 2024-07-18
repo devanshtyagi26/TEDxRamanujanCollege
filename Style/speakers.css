@@ -36,11 +36,16 @@ section {
   max-height: 100vh;
 }
 
-.content {
+.displayContent {
   max-width: 50vw;
   gap: 1rem;
   display: flex;
   flex-direction: column;
+
+  filter: blur(5px);
+  transform: translateY(70%);
+  opacity: 0;
+  transition: all 1s;
 }
 
 .fullname {
@@ -94,6 +99,9 @@ section {
   justify-content: center;
   align-items: center;
   max-height: 100vh;
+  filter: blur(10px);
+  opacity: 0;
+  transition: all 1.2s;
 }
 .speakerImage img {
   max-height: 30vw;
@@ -145,6 +153,36 @@ section {
   display: grid;
   align-items: center;
   justify-content: center;
+
+  filter: blur(5px);
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all 1s;
+}
+
+.block:nth-child(2) {
+  transition-delay: 200ms;
+}
+.block:nth-child(3) {
+  transition-delay: 300ms;
+}
+.block:nth-child(4) {
+  transition-delay: 400ms;
+}
+.block:nth-child(5) {
+  transition-delay: 500ms;
+}
+.block:nth-child(6) {
+  transition-delay: 600ms;
+}
+.block:nth-child(7) {
+  transition-delay: 700ms;
+}
+
+.show {
+  filter: blur(0);
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .image {
