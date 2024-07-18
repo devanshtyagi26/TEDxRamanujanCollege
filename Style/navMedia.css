@@ -34,14 +34,4 @@
   #sidebar:checked ~ .navbar .menu {
     right: 0;
   }
-
-  #sidebar:checked ~ #overlay {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rebeccapurple;
-    z-index: 100;
-  }
 }

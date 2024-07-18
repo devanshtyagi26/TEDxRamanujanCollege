@@ -16,6 +16,13 @@
   transform: scale(1.3);
 }
 
+#overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+
 nav {
   --background: transparent;
   position: fixed;
