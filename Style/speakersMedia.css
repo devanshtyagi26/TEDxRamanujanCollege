@@ -5,7 +5,7 @@
 }
 
 @media (max-width: 450px) {
-  .content {
+  .displayContent {
     max-width: 80vw;
   }
   .displaySpeaker {
