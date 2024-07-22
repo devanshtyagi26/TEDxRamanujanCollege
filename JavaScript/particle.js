@@ -96,10 +96,64 @@ function animate() {
   }
   connect();
 }
-
+let red = 255;
+let green = 187;
+let blue = 62;
 //check if particles are close enough to draw a line between them
 function connect() {
   let opacityValue = 1;
+  function defaultColor() {
+    red = 255;
+    green = 187;
+    blue = 62;
+    console.log("working");
+  }
+  function yash() {
+    red = 253;
+    green = 55;
+    blue = 64;
+    console.log("working");
+  }
+
+  function devansh() {
+    red = 41;
+    green = 66;
+    blue = 134;
+    console.log("working");
+  }
+  function mallika() {
+    red = 56;
+    green = 124;
+    blue = 95;
+    console.log("working");
+  }
+  function misti() {
+    red = 162;
+    green = 155;
+    blue = 137;
+    console.log("working");
+  }
+  function adya() {
+    red = 200;
+    green = 101;
+    blue = 119;
+    console.log("working");
+  }
+  document.querySelector(".yash").addEventListener("mouseover", yash);
+  document.querySelector(".yash").addEventListener("mouseout", defaultColor);
+
+  document.querySelector(".mallika").addEventListener("mouseover", mallika);
+  document.querySelector(".mallika").addEventListener("mouseout", defaultColor);
+
+  document.querySelector(".devansh").addEventListener("mouseover", devansh);
+  document.querySelector(".devansh").addEventListener("mouseout", defaultColor);
+
+  document.querySelector(".misti").addEventListener("mouseover", misti);
+  document.querySelector(".misti").addEventListener("mouseout", defaultColor);
+
+  document.querySelector(".adya").addEventListener("mouseover", adya);
+  document.querySelector(".adya").addEventListener("mouseout", defaultColor);
+
   for (let a = 0; a < particlesArray.length; a++) {
     for (let b = a; b < particlesArray.length; b++) {
       let distance =
@@ -109,7 +163,7 @@ function connect() {
           (particlesArray[a].y - particlesArray[b].y);
       if (distance < (canvas.width / 7) * (canvas.height / 7)) {
         opacityValue = 1 - distance / 15000;
-        ctx.strokeStyle = `rgba(255, 187, 62, ${opacityValue})`;
+        ctx.strokeStyle = `rgba(${red}, ${green}, ${blue}, ${opacityValue})`;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
@@ -131,6 +185,15 @@ window.addEventListener("mouseout", function () {
   pointer.x = undefined;
   pointer.y = undefined;
 });
+
+// function getRandomRGB() {
+//   red = 255;
+//   green = 255;
+//   blue = 255;
+//   console.log("working");
+// }
+
+// document.querySelector(".logo").addEventListener("click", getRandomRGB);
 
 init();
 animate();
