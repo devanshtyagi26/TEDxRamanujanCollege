@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Zain:wght@200;300;400;700;800;900&display=swap");
+
 .speakers {
   display: flex;
   flex-wrap: wrap;
@@ -120,18 +122,43 @@
   z-index: 4;
 }
 
-.image {
-  background: no-repeat url(../Images/SpeakerPhotos/GauravBarhadiya.jpg);
+#AkashImg {
+  background: no-repeat url(../Images/SpeakerPhotos/AkashTandon.png);
   background-size: cover;
 }
 
+#AnitaImg {
+  background: no-repeat url(../Images/SpeakerPhotos/AnitaAnand.png);
+  background-size: cover;
+}
+#SajjuImg {
+  background: no-repeat url(../Images/SpeakerPhotos/SajjuJain.png);
+  background-size: cover;
+}
+#AnandaImg {
+  background: no-repeat url(../Images/SpeakerPhotos/AnandaHota.png);
+  background-size: cover;
+}
+#SoumyadeepImg {
+  background: no-repeat url(../Images/SpeakerPhotos/SoumyadeepMukherjee.png);
+  background-size: cover;
+}
+#GauravImg {
+  background: no-repeat url(../Images/SpeakerPhotos/GauravBarhadiya.png);
+  background-size: cover;
+}
 .block .content {
-  font-family: "Rowdies";
-  font-weight: 700;
-  font-style: normal;
-  font-size: 2rem;
+  color: white;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.6rem;
   display: flex;
   flex-direction: column;
-  line-height: 1rem;
   z-index: 4;
+  text-transform: uppercase;
+}
+
+.block .content p {
+  margin-bottom: 0.3rem;
 }

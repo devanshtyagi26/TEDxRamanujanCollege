@@ -106,39 +106,43 @@ function connect() {
     red = 255;
     green = 187;
     blue = 62;
-    console.log("working");
   }
+
+  function byapti() {
+    red = 171;
+    green = 133;
+    blue = 94;
+  }
+
   function yash() {
     red = 253;
     green = 55;
     blue = 64;
-    console.log("working");
   }
 
   function devansh() {
-    red = 41;
-    green = 66;
-    blue = 134;
-    console.log("working");
+    red = 7;
+    green = 187;
+    blue = 237;
   }
   function mallika() {
-    red = 56;
-    green = 124;
-    blue = 95;
-    console.log("working");
+    red = 255;
+    green = 255;
+    blue = 255;
   }
   function misti() {
     red = 162;
     green = 155;
     blue = 137;
-    console.log("working");
   }
   function adya() {
     red = 200;
     green = 101;
     blue = 119;
-    console.log("working");
   }
+  document.querySelector(".byapti").addEventListener("mouseover", byapti);
+  document.querySelector(".byapti").addEventListener("mouseout", defaultColor);
+
   document.querySelector(".yash").addEventListener("mouseover", yash);
   document.querySelector(".yash").addEventListener("mouseout", defaultColor);
 

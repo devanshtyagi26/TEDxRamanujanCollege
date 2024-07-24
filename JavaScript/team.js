@@ -44,30 +44,30 @@
 
 // document.addEventListener("DOMContentLoaded", () => {
 //     const containers = document.querySelectorAll(".container");
-  
+
 //     const removeActiveClass = () => {
 //       containers.forEach((container) => {
 //         const box = container.querySelector(".box");
 //         const glass = container.querySelector(".glass");
 //         const handle = container.querySelector("#handle");
-  
+
 //         box.classList.remove("active");
 //         glass.classList.remove("active");
 //         handle.classList.remove("active");
 //       });
 //     };
-  
+
 //     containers.forEach((container) => {
 //       const box = container.querySelector(".box");
 //       const glass = container.querySelector(".glass");
 //       const handle = container.querySelector("#handle");
-  
+
 //       const toggleActiveClass = () => {
 //         const isActive =
 //           box.classList.contains("active") ||
 //           glass.classList.contains("active") ||
 //           handle.classList.contains("active");
-  
+
 //         if (isActive) {
 //           removeActiveClass();
 //         } else {
@@ -77,77 +77,73 @@
 //           handle.classList.add("active");
 //         }
 //       };
-  
+
 //       box.addEventListener("click", toggleActiveClass);
 //     });
 //   });
-  
 
 document.addEventListener("DOMContentLoaded", () => {
-    const containers = document.querySelectorAll(".container");
-  
-    const removeActiveClass = () => {
+  const containers = document.querySelectorAll(".container");
+
+  const removeActiveClass = () => {
+    containers.forEach((container) => {
+      const box = container.querySelector(".box");
+      const glass = container.querySelector(".glass");
+      const handle = container.querySelector("#handle");
+
+      box.classList.remove("active");
+      glass.classList.remove("active");
+      handle.classList.remove("active");
+    });
+  };
+
+  const toggleActiveClass = (event) => {
+    const box = event.currentTarget;
+    const container = box.closest(".container");
+    const glass = container.querySelector(".glass");
+    const handle = container.querySelector("#handle");
+
+    const isActive =
+      box.classList.contains("active") ||
+      glass.classList.contains("active") ||
+      handle.classList.contains("active");
+
+    if (isActive) {
+      removeActiveClass();
+    } else {
+      removeActiveClass();
+      box.classList.add("active");
+      glass.classList.add("active");
+      handle.classList.add("active");
+    }
+  };
+
+  const setupEventListeners = () => {
+    if (window.matchMedia("(max-width: 768px)").matches) {
       containers.forEach((container) => {
         const box = container.querySelector(".box");
         const glass = container.querySelector(".glass");
         const handle = container.querySelector("#handle");
-  
-        box.classList.remove("active");
-        glass.classList.remove("active");
-        handle.classList.remove("active");
+
+        box.addEventListener("click", toggleActiveClass);
       });
-    };
-  
-    const toggleActiveClass = (event) => {
-      const box = event.currentTarget;
-      const container = box.closest(".container");
-      const glass = container.querySelector(".glass");
-      const handle = container.querySelector("#handle");
-  
-      const isActive =
-        box.classList.contains("active") ||
-        glass.classList.contains("active") ||
-        handle.classList.contains("active");
-  
-      if (isActive) {
-        removeActiveClass();
-      } else {
-        removeActiveClass();
-        box.classList.add("active");
-        glass.classList.add("active");
-        handle.classList.add("active");
-      }
-    };
-  
-    const setupEventListeners = () => {
-      if (window.matchMedia("(max-width: 768px)").matches) {
-        containers.forEach((container) => {
-          const box = container.querySelector(".box");
-          const glass = container.querySelector(".glass");
-          const handle = container.querySelector("#handle");
-  
-          box.addEventListener("click", toggleActiveClass);
-        //   glass.addEventListener("click", toggleActiveClass);
-        //   handle.addEventListener("click", toggleActiveClass);
-        });
-      } else {
-        // Remove event listeners if not on mobile
-        containers.forEach((container) => {
-          const box = container.querySelector(".box");
-          const glass = container.querySelector(".glass");
-          const handle = container.querySelector("#handle");
-  
-          box.removeEventListener("click", toggleActiveClass);
-          glass.removeEventListener("click", toggleActiveClass);
-          handle.removeEventListener("click", toggleActiveClass);
-        });
-      }
-    };
-  
-    // Initial setup
-    setupEventListeners();
-  
-    // Re-setup on window resize
-    window.addEventListener("resize", setupEventListeners);
-  });
-  
+    } else {
+      // Remove event listeners if not on mobile
+      containers.forEach((container) => {
+        const box = container.querySelector(".box");
+        const glass = container.querySelector(".glass");
+        const handle = container.querySelector("#handle");
+
+        box.removeEventListener("click", toggleActiveClass);
+        glass.removeEventListener("click", toggleActiveClass);
+        handle.removeEventListener("click", toggleActiveClass);
+      });
+    }
+  };
+
+  // Initial setup
+  setupEventListeners();
+
+  // Re-setup on window resize
+  window.addEventListener("resize", setupEventListeners);
+});
