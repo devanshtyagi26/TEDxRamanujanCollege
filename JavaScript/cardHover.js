@@ -28,7 +28,7 @@ Akash.addEventListener("click", () => {
   panel.style.display = "flex";
   panel.querySelector(
     ".speakerImage"
-  ).innerHTML = `<img src="../Images/SpeakerPhotos/AkashTandon.png" alt="" />`;
+  ).innerHTML = `<img src="Images/SpeakerPhotos/AkashTandon.png" alt="" />`;
   panel.querySelector("#name").innerHTML = "Mr. Akash";
   panel.querySelector("#surname").innerHTML = "Tandon";
   panel.querySelector("#title").innerHTML = "Social Worker";
@@ -51,7 +51,7 @@ Anita.addEventListener("click", () => {
     ).href = `https://www.linkedin.com/in/anita-anand-4949513?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app`;
   panel.querySelector(
     ".speakerImage"
-  ).innerHTML = `<img src="../Images/SpeakerPhotos/AnitaAnand.png" alt="" />`;
+  ).innerHTML = `<img src="Images/SpeakerPhotos/AnitaAnand.png" alt="" />`;
   panel.querySelector("#name").innerHTML = "Ms. Anita";
   panel.querySelector("#surname").innerHTML = "Anand";
   panel.querySelector("#title").innerHTML = "Psychologist/Therapist";
@@ -75,7 +75,7 @@ Sajju.addEventListener("click", () => {
     ).href = `https://www.linkedin.com/in/sajjujain?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app`;
   panel.querySelector(
     ".speakerImage"
-  ).innerHTML = `<img src="../Images/SpeakerPhotos/SajjuJain.png" alt="" />`;
+  ).innerHTML = `<img src="Images/SpeakerPhotos/SajjuJain.png" alt="" />`;
   panel.querySelector("#name").innerHTML = "Mr. Sajju";
   panel.querySelector("#surname").innerHTML = "Jain";
   panel.querySelector("#title").innerHTML = "Entrepreneur";
@@ -92,7 +92,7 @@ Ananda.addEventListener("click", () => {
   panel.style.display = "flex";
   panel.querySelector(
     ".speakerImage"
-  ).innerHTML = `<img src="../Images/SpeakerPhotos/AnandaHota.png" alt="" />`;
+  ).innerHTML = `<img src="Images/SpeakerPhotos/AnandaHota.png" alt="" />`;
   panel.querySelector("#name").innerHTML = "Dr. Ananda";
   panel.querySelector("#surname").innerHTML = "Hota";
   panel.querySelector("#title").innerHTML = "Citizen Centred Scientist";
@@ -116,7 +116,7 @@ Soumyadeep.addEventListener("click", () => {
     ).href = `https://www.instagram.com/soumyadeepmukherjeephotos?igsh=MWV2MXk5Y28xbHMzNQ==`;
   panel.querySelector(
     ".speakerImage"
-  ).innerHTML = `<img src="../Images/SpeakerPhotos/SoumyadeepMukherjee.png" alt="" />`;
+  ).innerHTML = `<img src="Images/SpeakerPhotos/SoumyadeepMukherjee.png" alt="" />`;
   panel.querySelector("#name").innerHTML = "Mr. Soumyadeep";
   panel.querySelector("#surname").innerHTML = "Mukherjee";
   panel.querySelector("#title").innerHTML = "Astrophotographer";
@@ -133,7 +133,7 @@ Gaurav.addEventListener("click", () => {
   panel.style.display = "flex";
   panel.querySelector(
     ".speakerImage"
-  ).innerHTML = `<img src="../Images/SpeakerPhotos/GauravBarhadiya.png" alt="" />`;
+  ).innerHTML = `<img src="Images/SpeakerPhotos/GauravBarhadiya.png" alt="" />`;
   panel.querySelector("#name").innerHTML = "Mr. Gaurav";
   panel.querySelector("#surname").innerHTML = "Barhadiya";
   panel.querySelector("#title").innerHTML = "Astrophotographer";
