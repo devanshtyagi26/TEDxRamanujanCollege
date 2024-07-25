@@ -108,10 +108,41 @@ section {
   aspect-ratio: 1/1;
   object-fit: cover;
   width: 70%;
-  transition: 0.5s;
+  transition:  all 0.5s;
   border-radius: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 10px; 
 }
+
+/* Keyframes for fade-out */
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+/* Keyframes for fade-in */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fade out effect on hover */
+.glass:hover img,
+.glass:hover #slide1 {
+  animation: 1s fadeOut 2s forwards;
+}
+
+.intro {
+  position: absolute;
+  margin: 2rem;
+  opacity: 0;
+}
+
+.glass:hover .intro {
+  animation: 1s fadeIn 2s forwards;
+}
+
 .box .glass ul {
   list-style: none;
   position: absolute;
