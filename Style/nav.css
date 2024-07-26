@@ -81,12 +81,14 @@ nav .navbar .menu {
 #Register {
   background-color: red;
   padding: 0.5rem;
-  border-radius: 0.625rem;
 }
+/* #Register a {
+  font-weight: 600;
+} */
 
 .button a {
   position: fixed;
-  bottom:1.25rem;
+  bottom: 1.25rem;
   right: 1.25rem;
   overflow: hidden;
   box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.6);

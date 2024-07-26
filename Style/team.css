@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "poppins", sans-serif;
 }
 nav {
   background-color: black !important;
@@ -43,6 +42,7 @@ section {
 }
 
 #members h1 {
+  font-family: "poppins", sans-serif;
   color: transparent;
   -webkit-text-stroke: 1px white;
   background: url(../Images/backgroundText.svg);
@@ -108,9 +108,9 @@ section {
   aspect-ratio: 1/1;
   object-fit: cover;
   width: 70%;
-  transition:  all 0.5s;
+  transition: all 0.5s;
   border-radius: 0.625rem;
-  margin-bottom: 0.625rem; 
+  margin-bottom: 0.625rem;
 }
 
 /* Keyframes for fade-out */
