@@ -131,9 +131,9 @@ function connect() {
     blue = 255;
   }
   function misti() {
-    red = 162;
-    green = 155;
-    blue = 137;
+    red = 139;
+    green = 108;
+    blue = 103;
   }
   function adya() {
     red = 200;

@@ -18,7 +18,7 @@
   display: grid;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   cursor: pointer;
   position: relative;
 
@@ -61,7 +61,7 @@
 .block::before,
 .block::after {
   background: radial-gradient(
-    800px circle at var(--mouse-x) var(--mouse-y),
+    50rem circle at var(--mouse-x) var(--mouse-y),
     rgba(255, 255, 255, 0.06),
     transparent 40%
   );
@@ -79,7 +79,7 @@
 
 .block::before {
   background: radial-gradient(
-    800px circle at var(--mouse-x) var(--mouse-y),
+    50rem circle at var(--mouse-x) var(--mouse-y),
     rgba(255, 255, 255, 0.06),
     transparent 40%
   );
@@ -88,7 +88,7 @@
 
 .block::after {
   background: radial-gradient(
-    600px circle at var(--mouse-x) var(--mouse-y),
+    37.5rem x circle at var(--mouse-x) var(--mouse-y),
     rgba(255, 255, 255, 0.4),
     transparent 40%
   );
@@ -97,7 +97,7 @@
 
 .block > .block-border {
   background: radial-gradient(
-    400px circle at var(--mouse-x) var(--mouse-y),
+    25rem x circle at var(--mouse-x) var(--mouse-y),
     rgba(255, 255, 255, 0.3),
     transparent 40%
   );
@@ -107,10 +107,10 @@
 .block > .block-content {
   background-color: rgb(23, 23, 23);
   border-radius: inherit;
-  margin: 1px;
+  margin: 0.0625;
   position: absolute;
-  height: calc(100% - 2px);
-  width: calc(100% - 2px);
+  height: calc(100% - 0.125rem);
+  width: calc(100% - 0.125rem);
   z-index: 2;
 }
 

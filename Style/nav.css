@@ -29,8 +29,8 @@ nav {
   left: 0;
   top: 0;
   width: 100vw;
-  height: 75px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  height: 4.6875rem;
+  box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.1);
   transition: 0.4s;
   z-index: 9;
   display: flex;
@@ -68,7 +68,7 @@ nav .navbar .menu {
 }
 .navbar .menu li {
   list-style: none;
-  margin: 0 15px;
+  margin: 0 0.9375rem;
 }
 .navbar .menu li a {
   color: #fff;
@@ -81,17 +81,17 @@ nav .navbar .menu {
 #Register {
   background-color: red;
   padding: 0.5rem;
-  border-radius: 10px;
+  border-radius: 0.625rem;
 }
 
 .button a {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom:1.25rem;
+  right: 1.25rem;
   overflow: hidden;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.6);
   background-color: black;
-  border-radius: 5px;
-  height: 23px;
-  width: 23px;
+  border-radius: 0.3125rem;
+  height: 1.4375rem;
+  width: 1.4375rem;
 }

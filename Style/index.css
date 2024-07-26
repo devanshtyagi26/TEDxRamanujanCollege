@@ -77,32 +77,32 @@ section {
   min-height: 70vh;
 }
 .heading-big {
-  font-size: 28px;
-  line-height: 34px;
+  font-size: 1.75rem;
+  line-height: 2.125rem;
   font-weight: 300;
   overflow: hidden;
 }
 
 #redLine {
   background-color: #e62b1e;
-  width: 80px;
-  height: 4px;
-  margin: 2px 0 13px;
+  width: 5rem;
+  height: 0.25rem;
+  margin: 0.125rem 0 0.8125rem;
   display: block;
 }
 
 .para {
-  font-size: 17px;
+  font-size: 1.0625rem;
   font-weight: 230;
-  line-height: 24px;
+  line-height: 1.5rem;
 }
 .aboutTEDx {
   border: 2px solid black;
   padding: 2rem;
 }
 .heading-small {
-  font-size: 20px;
-  line-height: 34px;
+  font-size: 1.25rem;
+  line-height: 2.125rem;
   font-weight: 300;
 }
 

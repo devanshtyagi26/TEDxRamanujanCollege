@@ -1,4 +1,4 @@
-@media (max-width: 450px) {
+@media (max-width: 28.125rem) {
   nav .navbar .menu {
     gap: 1vw;
   }
@@ -11,7 +11,7 @@
     height: 57%;
     overflow: hidden;
     position: relative;
-    top: -5px;
+    top: -0.3125rem;
   }
   .cell h2 {
     letter-spacing: 0.1rem;
@@ -25,7 +25,7 @@
   
 }
 
-@media (max-width: 990px) and (orientation: landscape) {
+@media (max-width: 61.875rem) and (orientation: landscape) {
   .countdown {
     width: 73vw;
     height: 20vw;
@@ -35,7 +35,7 @@
     height: 57%;
     overflow: hidden;
     position: relative;
-    top: -17px;
+    top: -1.0625rem;
   }
   .cell h2 {
     letter-spacing: 0.3rem;
@@ -49,7 +49,7 @@
   }
 }
 
-@media (max-width: 940px) {
+@media (max-width: 58.75rem) {
   .heading {
     width: 100vw;
     display: grid;
@@ -62,12 +62,12 @@
   }
   .change {
     width: 100vw;
-    height: 28px;
+    height: 1.75rem;
     display: grid;
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 28.125rem) {
   .description {
     flex-direction: column;
     display: flex;

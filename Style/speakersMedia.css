@@ -1,10 +1,10 @@
-@media (max-width: 940px) {
+@media (max-width: 58.75rem) {
   .block {
     margin: 3rem 6rem;
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 28.125rem) {
   .displayContent {
     max-width: 80vw;
   }
