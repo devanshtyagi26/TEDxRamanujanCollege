@@ -10,6 +10,9 @@ nav {
   background-color: black !important;
 }
 
+body {
+  overflow-x: hidden;
+}
 .layout {
   display: flex;
   margin-top: 3rem;
@@ -167,4 +170,81 @@ span {
   font-size: 0.8rem;
   margin-left: 1rem;
   transition: all 0.2s;
+}
+
+.mailAlert {
+  background: white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  border-left: 6px solid red;
+  padding: 20px 35px 17px 25px;
+  position: absolute;
+  z-index: 10;
+  top: 6rem;
+  right: 2rem;
+  overflow: hidden;
+  transform: translateX(calc(100% + 40px));
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+}
+
+.mailAlert.active {
+  transform: translateX(0%);
+}
+
+.content {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.content .tick {
+  color: limegreen;
+  height: 1.7rem;
+  width: 1.7rem;
+}
+
+.cross {
+  position: absolute;
+  top: 6px;
+  right: 7px;
+  cursor: pointer;
+  color: black;
+  opacity: 0.7;
+}
+
+.cross:hover {
+  opacity: 1;
+}
+
+.progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: white;
+}
+
+.progress::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: red;
+  height: 100%;
+  width: 100%;
+}
+
+.progress.active:before {
+  animation: progress 5s linear forwards;
+}
+
+@keyframes progress {
+  100% {
+    right: 100%;
+  }
 }

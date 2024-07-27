@@ -54,12 +54,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
   document.querySelector("#email").addEventListener("input", validateEmail);
 });
 
+const button = document.querySelector("button");
+const mailAlert = document.querySelector(".mailAlert");
+const closeBtn = document.querySelector(".cross");
+const progress = document.querySelector(".progress");
+
 function sendMail() {
   if (mailValid == true) {
     if (phoneValid == true) {
       let params = {
         name: document.querySelector("#name").value,
         email: document.querySelector("#email").value,
+        phone: document.querySelector("#phone").value,
         message: document.querySelector("#message").value,
       };
 
@@ -71,15 +77,67 @@ function sendMail() {
         .then((res) => {
           document.querySelector("#name").value = "";
           document.querySelector("#email").value = "";
+          document.querySelector("#phone").value = "";
           document.querySelector("#message").value = "";
+          document.querySelector(".mailValid").innerHTML = "";
+          document.querySelector(".phoneValid").innerHTML = "";
           console.log(res);
-          alert("Email Sent Successfully.");
+          mailAlert.classList.add("active");
+          progress.classList.add("active");
+          setTimeout(() => {
+            mailAlert.classList.remove("active");
+          }, 5000);
+
+          setTimeout(() => {
+            progress.classList.remove("active");
+          }, 5300);
+          closeBtn.addEventListener("click", () => {
+            mailAlert.classList.remove("active");
+
+            setTimeout(() => {
+              progress.classList.remove("active");
+            }, 300);
+          });
         })
         .catch((err) => console.log(err));
     } else {
-      alert("Please Check your Phone Number");
+      // mailAlert.style.display = "flex";
+      document.querySelector(".alertMsg").innerHTML = "Check Phone Number";
+      mailAlert.classList.add("active");
+      progress.classList.add("active");
+      setTimeout(() => {
+        mailAlert.classList.remove("active");
+      }, 5000);
+
+      setTimeout(() => {
+        progress.classList.remove("active");
+      }, 5300);
+      closeBtn.addEventListener("click", () => {
+        mailAlert.classList.remove("active");
+
+        setTimeout(() => {
+          progress.classList.remove("active");
+        }, 300);
+      });
     }
   } else {
-    alert("Please check your email.");
+    // mailAlert.style.display = "flex";
+    document.querySelector(".alertMsg").innerHTML = "Check Email Address";
+    mailAlert.classList.add("active");
+    progress.classList.add("active");
+    setTimeout(() => {
+      mailAlert.classList.remove("active");
+    }, 5000);
+
+    setTimeout(() => {
+      progress.classList.remove("active");
+    }, 5300);
+    closeBtn.addEventListener("click", () => {
+      mailAlert.classList.remove("active");
+
+      setTimeout(() => {
+        progress.classList.remove("active");
+      }, 300);
+    });
   }
 }
