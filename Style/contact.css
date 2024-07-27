@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=M+PLUS+Rounded+1c&family=Zain:wght@200;300;400;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+}
+nav {
+  background-color: black !important;
+}
+
+.layout {
+  display: flex;
+  margin-top: 3rem;
+  align-items: center;
+  justify-content: left;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  background: no-repeat url(../Images/ContactUsLandscape.svg);
+  background-size: cover;
+}
+
+.layout svg {
+  position: absolute;
+  height: 20rem;
+}
+.layout .svg1 {
+  left: 1rem;
+  top: 2rem;
+  animation: spin 30s linear 0s infinite forwards;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.layout .svg2 {
+  left: 48rem;
+  bottom: 4rem;
+  animation: spin 30s linear 0s infinite forwards;
+}
+.layout .block {
+  width: 41rem;
+  height: 25rem;
+  padding: 2rem 4rem 8rem 4rem;
+  gap: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-left: 8rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  box-shadow: -15px 17px 17px rgba(10, 10, 10, 0.25);
+}
+
+.layout .block h1 {
+  font-family: "Libre Franklin", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  color: white;
+  font-size: 4rem;
+}
+
+.layout .block p {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+
+.layout .block form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.layout .block form input::placeholder,
+.layout .block form textarea::placeholder {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  border: none;
+  background: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+.layout .block form input {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+  width: 16rem;
+  font-size: 0.8rem;
+  padding: 0.2rem 0;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  transition: all 0.2s;
+}
+
+.layout .block form textarea {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  border: none;
+  background: none;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+  margin-top: 5px;
+  padding: 0.3rem;
+  resize: none;
+  outline: none;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.layout .block form input:focus {
+  border: 2px solid white;
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+}
+
+.layout .block form textarea:focus {
+  border: 1px solid white;
+}
+
+.layout .block form button {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  background: none;
+  color: white;
+  height: 2rem;
+  width: 6rem;
+  border-radius: 19px;
+}
+
+span {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  border: medium;
+  background: none;
+  font-style: italic;
+  font-size: 0.8rem;
+  margin-left: 1rem;
+  transition: all 0.2s;
+}
