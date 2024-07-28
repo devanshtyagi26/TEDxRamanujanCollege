@@ -190,3 +190,19 @@ function sendMail() {
     });
   }
 }
+
+
+// EC1301EA51185679B0C7FB3DEE55342F16A5
+
+
+Email.send({
+  Host : "smtp.elasticemail.com",
+  Username : "tyagidevansh3@gmail.com",
+  Password : "EC1301EA51185679B0C7FB3DEE55342F16A5",
+  To : 'them@website.com',
+  From : "you@isp.com",
+  Subject : "This is the subject",
+  Body : "And this is the body"
+}).then(
+message => alert(message)
+);

@@ -70,22 +70,35 @@ nav .navbar .menu {
   list-style: none;
   margin: 0 0.9375rem;
 }
+
 .navbar .menu li a {
   color: #fff;
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 300;
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar .menu li a:hover {
+  color: #ffffff91;
 }
 
 #Register {
   background-color: red;
   padding: 0.5rem;
+  transition: all 0.3s ease;
 }
 #Register a {
   font-weight: 600;
 }
 
+#Register:hover {
+  transform: scale(1.1);
+}
+#Register a:hover {
+  color: #fff;
+}
 .button a {
   position: fixed;
   bottom: 1.25rem;
