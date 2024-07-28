@@ -48,10 +48,8 @@
     top: 4rem;
   }
   .layout .svg2 {
-    left: 12rem;
+    overflow-x: hidden;
+    right: 0rem;
     bottom: -1rem;
   }
-}
-
-@media (max-width: 28.125rem) {
 }

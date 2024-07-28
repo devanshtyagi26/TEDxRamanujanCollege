@@ -82,8 +82,13 @@ function sendMail() {
           document.querySelector(".mailValid").innerHTML = "";
           document.querySelector(".phoneValid").innerHTML = "";
           console.log(res);
-          mailAlert.classList.add("active");
-          progress.classList.add("active");
+          mailAlert.style.display = "flex";
+          progress.style.display = "flex";
+          setTimeout(() => {
+            mailAlert.classList.add("active");
+            progress.classList.add("active");
+          }, 10);
+
           setTimeout(() => {
             mailAlert.classList.remove("active");
           }, 5000);
@@ -91,20 +96,36 @@ function sendMail() {
           setTimeout(() => {
             progress.classList.remove("active");
           }, 5300);
+          setTimeout(() => {
+            mailAlert.style.display = "none";
+          }, 5250);
+          setTimeout(() => {
+            progress.style.display = "none";
+          }, 5320);
           closeBtn.addEventListener("click", () => {
             mailAlert.classList.remove("active");
 
             setTimeout(() => {
               progress.classList.remove("active");
             }, 300);
+            setTimeout(() => {
+              progress.style.display = "none";
+            }, 310);
+            setTimeout(() => {
+              mailAlert.style.display = "none";
+            }, 320);
           });
         })
         .catch((err) => console.log(err));
     } else {
-      // mailAlert.style.display = "flex";
       document.querySelector(".alertMsg").innerHTML = "Check Phone Number";
-      mailAlert.classList.add("active");
-      progress.classList.add("active");
+      mailAlert.style.display = "flex";
+      progress.style.display = "flex";
+      setTimeout(() => {
+        mailAlert.classList.add("active");
+        progress.classList.add("active");
+      }, 10);
+
       setTimeout(() => {
         mailAlert.classList.remove("active");
       }, 5000);
@@ -112,19 +133,35 @@ function sendMail() {
       setTimeout(() => {
         progress.classList.remove("active");
       }, 5300);
+      setTimeout(() => {
+        mailAlert.style.display = "none";
+      }, 5250);
+      setTimeout(() => {
+        progress.style.display = "none";
+      }, 5320);
       closeBtn.addEventListener("click", () => {
         mailAlert.classList.remove("active");
 
         setTimeout(() => {
           progress.classList.remove("active");
         }, 300);
+        setTimeout(() => {
+          progress.style.display = "none";
+        }, 310);
+        setTimeout(() => {
+          mailAlert.style.display = "none";
+        }, 320);
       });
     }
   } else {
-    // mailAlert.style.display = "flex";
     document.querySelector(".alertMsg").innerHTML = "Check Email Address";
-    mailAlert.classList.add("active");
-    progress.classList.add("active");
+    mailAlert.style.display = "flex";
+    progress.style.display = "flex";
+    setTimeout(() => {
+      mailAlert.classList.add("active");
+      progress.classList.add("active");
+    }, 10);
+
     setTimeout(() => {
       mailAlert.classList.remove("active");
     }, 5000);
@@ -132,12 +169,24 @@ function sendMail() {
     setTimeout(() => {
       progress.classList.remove("active");
     }, 5300);
+    setTimeout(() => {
+      mailAlert.style.display = "none";
+    }, 5250);
+    setTimeout(() => {
+      progress.style.display = "none";
+    }, 5320);
     closeBtn.addEventListener("click", () => {
       mailAlert.classList.remove("active");
 
       setTimeout(() => {
         progress.classList.remove("active");
       }, 300);
+      setTimeout(() => {
+        progress.style.display = "none";
+      }, 310);
+      setTimeout(() => {
+        mailAlert.style.display = "none";
+      }, 320);
     });
   }
 }

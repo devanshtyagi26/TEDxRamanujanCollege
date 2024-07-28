@@ -44,7 +44,7 @@ body {
   }
 }
 .layout .svg2 {
-  left: 48rem;
+  right: 28rem;
   bottom: 4rem;
   animation: spin 30s linear 0s infinite forwards;
 }
@@ -181,14 +181,14 @@ span {
   position: absolute;
   z-index: 10;
   top: 6rem;
-  right: 2rem;
+  right: -100%;
   overflow: hidden;
-  transform: translateX(calc(100% + 40px));
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+  display: none;
 }
 
 .mailAlert.active {
-  transform: translateX(0%);
+  right: 2rem;
 }
 
 .content {
@@ -227,6 +227,7 @@ span {
   height: 3px;
   width: 100%;
   background-color: white;
+  display: none;
 }
 
 .progress::before {
