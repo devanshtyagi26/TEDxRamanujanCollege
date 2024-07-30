@@ -1,0 +1,11 @@
+@media (max-width: 58.75rem) {
+  .formBox {
+    width: 75%;
+  }
+  .input {
+    width: 70%;
+  }
+  .toggleBtn {
+    padding: 10px 30px;
+  }
+}

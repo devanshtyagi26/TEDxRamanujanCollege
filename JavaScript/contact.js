@@ -4,21 +4,29 @@ function validateEmail() {
   let email = document.querySelector("#email").value;
   let text = document.querySelector(".mailValid");
 
-  let pattern =
-    /^(?=.{1,256})(?=.{1,64}@.{1,255}$)[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
-
-  if (email.match(pattern)) {
-    form.classList.add("valid");
-    form.classList.remove("invalid");
-    text.innerHTML = "Your Email Address is Valid.";
-    text.style.color = "lime";
-    mailValid = true;
-  } else {
+  if (email == "") {
     form.classList.remove("valid");
     form.classList.add("invalid");
-    text.innerHTML = "Please enter valid Email Address.";
+    text.innerHTML = "*Email can't be Blank";
     text.style.color = "red";
     mailValid = false;
+  } else {
+    let pattern =
+      /^(?=.{1,256})(?=.{1,64}@.{1,255}$)[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+
+    if (!email.match(pattern)) {
+      form.classList.remove("valid");
+      form.classList.add("invalid");
+      text.innerHTML = "Please enter valid Email Address.";
+      text.style.color = "red";
+      mailValid = false;
+    } else {
+      form.classList.add("valid");
+      form.classList.remove("invalid");
+      text.innerHTML = "Your Email Address is Valid.";
+      text.style.color = "lime";
+      mailValid = true;
+    }
   }
 }
 
@@ -31,19 +39,44 @@ function validatePhoneNumber() {
 
   // Regex pattern for Indian phone number validation
   let pattern = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
-
-  if (phone.match(pattern)) {
-    form.classList.add("valid");
-    form.classList.remove("invalid");
-    text.innerHTML = "Your Phone Number is Valid.";
-    text.style.color = "lime";
-    phoneValid = true;
-  } else {
+  if (phone == "") {
     form.classList.remove("valid");
     form.classList.add("invalid");
-    text.innerHTML = "Please enter a valid Phone Number.";
+    text.innerHTML = "*Phone Number can't be Blank";
     text.style.color = "red";
     phoneValid = false;
+  } else {
+    if (isNaN(phone)) {
+      form.classList.remove("valid");
+      form.classList.add("invalid");
+      text.innerHTML = "*Enter Numbers Only";
+      text.style.color = "red";
+      phoneValid = false;
+    } else {
+      if (phone.length > 10) {
+        form.classList.remove("valid");
+        form.classList.add("invalid");
+        text.innerHTML = "*Please enter a valid Phone Number.";
+        text.style.color = "red";
+        phoneValid = false;
+      } else {
+        let pattern = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+
+        if (!phone.match(pattern)) {
+          form.classList.remove("valid");
+          form.classList.add("invalid");
+          text.innerHTML = "Please enter a valid Phone Number.";
+          text.style.color = "red";
+          phoneValid = false;
+        } else {
+          form.classList.add("valid");
+          form.classList.remove("invalid");
+          text.innerHTML = "Your Phone Number is Valid.";
+          text.style.color = "lime";
+          phoneValid = true;
+        }
+      }
+    }
   }
 }
 
@@ -191,18 +224,14 @@ function sendMail() {
   }
 }
 
-
 // EC1301EA51185679B0C7FB3DEE55342F16A5
 
-
 Email.send({
-  Host : "smtp.elasticemail.com",
-  Username : "tyagidevansh3@gmail.com",
-  Password : "EC1301EA51185679B0C7FB3DEE55342F16A5",
-  To : 'them@website.com',
-  From : "you@isp.com",
-  Subject : "This is the subject",
-  Body : "And this is the body"
-}).then(
-message => alert(message)
-);
+  Host: "smtp.elasticemail.com",
+  Username: "tyagidevansh3@gmail.com",
+  Password: "EC1301EA51185679B0C7FB3DEE55342F16A5",
+  To: "them@website.com",
+  From: "you@isp.com",
+  Subject: "This is the subject",
+  Body: "And this is the body",
+}).then((message) => alert(message));
