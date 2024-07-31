@@ -50,7 +50,7 @@ body {
 }
 .layout .block {
   width: 41rem;
-  height: 25rem;
+  height: 26rem;
   padding: 2rem 4rem 8rem 4rem;
   gap: 1rem;
   background-color: rgba(255, 255, 255, 0.1);
@@ -71,7 +71,7 @@ body {
   font-weight: 800;
   font-style: normal;
   color: white;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .layout .block p {
@@ -85,7 +85,7 @@ body {
 .layout .block form {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .layout .block form input::placeholder,
@@ -104,15 +104,15 @@ body {
 .layout .block form input {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 200;
+  font-weight: 500;
   font-style: normal;
   border: none;
   background: none;
   outline: none;
-  color: white;
   width: 16rem;
   font-size: 0.8rem;
   padding: 0.2rem 0;
+  color: white;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-top-style: none;
   border-left-style: none;
@@ -123,11 +123,10 @@ body {
 .layout .block form textarea {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 200;
+  font-weight: 500;
   font-style: normal;
   border: none;
   background: none;
-  color: white;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 3px;
   margin-top: 5px;
@@ -148,7 +147,7 @@ body {
 .layout .block form textarea:focus {
   border: 1px solid white;
 }
-
+ 
 .layout .block form button {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
@@ -158,18 +157,6 @@ body {
   height: 2rem;
   width: 6rem;
   border-radius: 19px;
-}
-
-span {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  border: medium;
-  background: none;
-  font-style: italic;
-  font-size: 0.8rem;
-  margin-left: 1rem;
-  transition: all 0.2s;
 }
 
 .mailAlert {
@@ -248,4 +235,65 @@ span {
   100% {
     right: 100%;
   }
+}
+
+/* parsley */
+
+input.parsley-success,
+select.parsley-success,
+textarea.parsley-success {
+  color: #0b0 !important;
+  border-color: #0b0 !important;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  border: medium;
+  background: none;
+  font-style: italic;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  list-style-type: none;
+  font-size: 0.75em;
+  line-height: 0.9em;
+  border-width: 1.5px;
+}
+
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+  color: red !important;
+  border-color: red !important;
+  border-width: 1.5px;
+}
+
+.parsley-errors-list {
+  color: red !important;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  border: medium;
+  background: none;
+  font-style: italic;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  list-style-type: none;
+  font-size: 0.75em;
+  line-height: 0.9em;
+  opacity: 0;
+
+  transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+}
+
+.parsley-errors-list.filled {
+  opacity: 1;
+}
+
+.parsley-type,
+.parsley-required,
+.parsley-equalto {
+  color: red;
 }

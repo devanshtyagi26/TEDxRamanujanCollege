@@ -29,12 +29,12 @@
 
       <ul class="menu">
         <label for="sidebar"><img src="Images/Close.svg" alt="" class="white close-sidebar" /></label>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="speakers.html">SPEAKERS</a></li>
-        <li><a href="team.html">OUR TEAM</a></li>
-        <li><a href="#Contact">SPONSORS</a></li>
-        <li><a href="#">CONTACT US</a></li>
-        <li id="Register"><a href="register.html">REGISTER</a></li>
+        <li><a href="./index.html">HOME</a></li>
+        <li><a href="./speakers.html">SPEAKERS</a></li>
+        <li><a href="./team.html">OUR TEAM</a></li>
+        <li><a href="#">SPONSORS</a></li>
+        <li><a href="./ContactUs/index.php">CONTACT US</a></li>
+        <li id="Register"><a href="#">REGISTER</a></li>
       </ul>
     </div>
   </nav>
@@ -116,9 +116,11 @@
       </div>
     </div>
   </section>
+  <a href="Respond/index.php"> Clocjk</a>
   <script src="JavaScript/register.js"></script>
 </body>
 
 </html>
 
-<?php include "Php/process.php"; ?>
+<?php
+include "Php/process.php"; ?>

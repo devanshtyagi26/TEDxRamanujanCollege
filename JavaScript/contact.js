@@ -1,100 +1,18 @@
-let mailValid = false;
-function validateEmail() {
-  let form = document.querySelector("#form");
-  let email = document.querySelector("#email").value;
-  let text = document.querySelector(".mailValid");
+document.addEventListener("DOMContentLoaded", function () {
+  const button = document.querySelector("button");
+  const mailAlert = document.querySelector(".mailAlert");
+  const closeBtn = document.querySelector(".cross");
+  const progress = document.querySelector(".progress");
 
-  if (email == "") {
-    form.classList.remove("valid");
-    form.classList.add("invalid");
-    text.innerHTML = "*Email can't be Blank";
-    text.style.color = "red";
-    mailValid = false;
-  } else {
-    let pattern =
-      /^(?=.{1,256})(?=.{1,64}@.{1,255}$)[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+  $("#form").parsley();
 
-    if (!email.match(pattern)) {
-      form.classList.remove("valid");
-      form.classList.add("invalid");
-      text.innerHTML = "Please enter valid Email Address.";
-      text.style.color = "red";
-      mailValid = false;
-    } else {
-      form.classList.add("valid");
-      form.classList.remove("invalid");
-      text.innerHTML = "Your Email Address is Valid.";
-      text.style.color = "lime";
-      mailValid = true;
-    }
-  }
-}
+  button.addEventListener("click", function (event) {
+    event.preventDefault();
+    sendMail();
+  });
 
-let phoneValid = false;
-
-function validatePhoneNumber() {
-  let form = document.querySelector("#form");
-  let phone = document.querySelector("#phone").value;
-  let text = document.querySelector(".phoneValid");
-
-  // Regex pattern for Indian phone number validation
-  let pattern = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
-  if (phone == "") {
-    form.classList.remove("valid");
-    form.classList.add("invalid");
-    text.innerHTML = "*Phone Number can't be Blank";
-    text.style.color = "red";
-    phoneValid = false;
-  } else {
-    if (isNaN(phone)) {
-      form.classList.remove("valid");
-      form.classList.add("invalid");
-      text.innerHTML = "*Enter Numbers Only";
-      text.style.color = "red";
-      phoneValid = false;
-    } else {
-      if (phone.length > 10) {
-        form.classList.remove("valid");
-        form.classList.add("invalid");
-        text.innerHTML = "*Please enter a valid Phone Number.";
-        text.style.color = "red";
-        phoneValid = false;
-      } else {
-        let pattern = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
-
-        if (!phone.match(pattern)) {
-          form.classList.remove("valid");
-          form.classList.add("invalid");
-          text.innerHTML = "Please enter a valid Phone Number.";
-          text.style.color = "red";
-          phoneValid = false;
-        } else {
-          form.classList.add("valid");
-          form.classList.remove("invalid");
-          text.innerHTML = "Your Phone Number is Valid.";
-          text.style.color = "lime";
-          phoneValid = true;
-        }
-      }
-    }
-  }
-}
-
-document.addEventListener("DOMContentLoaded", (event) => {
-  document
-    .querySelector("#phone")
-    .addEventListener("input", validatePhoneNumber);
-  document.querySelector("#email").addEventListener("input", validateEmail);
-});
-
-const button = document.querySelector("button");
-const mailAlert = document.querySelector(".mailAlert");
-const closeBtn = document.querySelector(".cross");
-const progress = document.querySelector(".progress");
-
-function sendMail() {
-  if (mailValid == true) {
-    if (phoneValid == true) {
+  function sendMail() {
+    if ($("#form").parsley().isValid()) {
       let params = {
         name: document.querySelector("#name").value,
         email: document.querySelector("#email").value,
@@ -108,86 +26,34 @@ function sendMail() {
       emailjs
         .send(serviceId, templateId, params)
         .then((res) => {
-          document.querySelector("#name").value = "";
-          document.querySelector("#email").value = "";
-          document.querySelector("#phone").value = "";
-          document.querySelector("#message").value = "";
-          document.querySelector(".mailValid").innerHTML = "";
-          document.querySelector(".phoneValid").innerHTML = "";
-          console.log(res);
-          mailAlert.style.display = "flex";
-          progress.style.display = "flex";
-          setTimeout(() => {
-            mailAlert.classList.add("active");
-            progress.classList.add("active");
-          }, 10);
+          console.log("Mail sent successfully:", res);
+          clearForm();
+          showAlert("Mail sent successfully!");
 
-          setTimeout(() => {
-            mailAlert.classList.remove("active");
-          }, 5000);
-
-          setTimeout(() => {
-            progress.classList.remove("active");
-          }, 5300);
-          setTimeout(() => {
-            mailAlert.style.display = "none";
-          }, 5250);
-          setTimeout(() => {
-            progress.style.display = "none";
-          }, 5320);
-          closeBtn.addEventListener("click", () => {
-            mailAlert.classList.remove("active");
-
-            setTimeout(() => {
-              progress.classList.remove("active");
-            }, 300);
-            setTimeout(() => {
-              progress.style.display = "none";
-            }, 310);
-            setTimeout(() => {
-              mailAlert.style.display = "none";
-            }, 320);
-          });
+          closeBtn.addEventListener("click", hideAlert);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.log("Error sending mail:", err);
+        });
     } else {
-      document.querySelector(".alertMsg").innerHTML = "Check Phone Number";
-      mailAlert.style.display = "flex";
-      progress.style.display = "flex";
-      setTimeout(() => {
-        mailAlert.classList.add("active");
-        progress.classList.add("active");
-      }, 10);
+      console.log("Form validation failed");
+      showAlert("Check Details");
 
-      setTimeout(() => {
-        mailAlert.classList.remove("active");
-      }, 5000);
-
-      setTimeout(() => {
-        progress.classList.remove("active");
-      }, 5300);
-      setTimeout(() => {
-        mailAlert.style.display = "none";
-      }, 5250);
-      setTimeout(() => {
-        progress.style.display = "none";
-      }, 5320);
-      closeBtn.addEventListener("click", () => {
-        mailAlert.classList.remove("active");
-
-        setTimeout(() => {
-          progress.classList.remove("active");
-        }, 300);
-        setTimeout(() => {
-          progress.style.display = "none";
-        }, 310);
-        setTimeout(() => {
-          mailAlert.style.display = "none";
-        }, 320);
-      });
+      closeBtn.addEventListener("click", hideAlert);
     }
-  } else {
-    document.querySelector(".alertMsg").innerHTML = "Check Email Address";
+  }
+
+  function clearForm() {
+    document.querySelector("#name").value = "";
+    document.querySelector("#email").value = "";
+    document.querySelector("#phone").value = "";
+    document.querySelector("#message").value = "";
+    document.querySelector(".mailValid").innerHTML = "";
+    document.querySelector(".phoneValid").innerHTML = "";
+  }
+
+  function showAlert(message) {
+    document.querySelector(".alertMsg").innerHTML = message;
     mailAlert.style.display = "flex";
     progress.style.display = "flex";
     setTimeout(() => {
@@ -208,30 +74,30 @@ function sendMail() {
     setTimeout(() => {
       progress.style.display = "none";
     }, 5320);
-    closeBtn.addEventListener("click", () => {
-      mailAlert.classList.remove("active");
-
-      setTimeout(() => {
-        progress.classList.remove("active");
-      }, 300);
-      setTimeout(() => {
-        progress.style.display = "none";
-      }, 310);
-      setTimeout(() => {
-        mailAlert.style.display = "none";
-      }, 320);
-    });
   }
-}
+
+  function hideAlert() {
+    mailAlert.classList.remove("active");
+    setTimeout(() => {
+      progress.classList.remove("active");
+    }, 300);
+    setTimeout(() => {
+      progress.style.display = "none";
+    }, 310);
+    setTimeout(() => {
+      mailAlert.style.display = "none";
+    }, 320);
+  }
+});
 
 // EC1301EA51185679B0C7FB3DEE55342F16A5
 
-Email.send({
-  Host: "smtp.elasticemail.com",
-  Username: "tyagidevansh3@gmail.com",
-  Password: "EC1301EA51185679B0C7FB3DEE55342F16A5",
-  To: "them@website.com",
-  From: "you@isp.com",
-  Subject: "This is the subject",
-  Body: "And this is the body",
-}).then((message) => alert(message));
+// Email.send({
+//   Host: "smtp.elasticemail.com",
+//   Username: "tyagidevansh3@gmail.com",
+//   Password: "EC1301EA51185679B0C7FB3DEE55342F16A5",
+//   To: "them@website.com",
+//   From: "you@isp.com",
+//   Subject: "This is the subject",
+//   Body: "And this is the body",
+// }).then((message) => alert(message));

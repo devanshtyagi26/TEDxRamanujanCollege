@@ -5,9 +5,9 @@ $password = "";
 $server = "localhost";
 $db = "webtesting";
 
-$connect = mysqli_connect($server, $userName,$password,$db);
+$con = mysqli_connect($server, $userName,$password,$db);
 
-if($connect){
+if($con){
     // echo " Success";
 }
 else{
