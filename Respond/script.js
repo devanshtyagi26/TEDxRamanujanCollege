@@ -5,7 +5,7 @@ $(document).ready(function () {
     event.preventDefault();
     if ($("#validate_form").parsley().isValid()) {
       $.ajax({
-        url: "action.php",
+        url: "Actions/action.php",
         method: "POST",
         data: $(this).serialize(),
         beforeSend: function () {
@@ -18,6 +18,11 @@ $(document).ready(function () {
           $("#submit").attr("disabled", false);
           $("#submit").val("Submit");
           alert(data);
+
+          $(".verifyYourEmail").addClass("reveal");
+          setInterval(() => {
+            $(".verifyYourEmail").removeClass("reveal");
+          }, 3000);
         },
       });
     }
@@ -39,31 +44,23 @@ if (isMobile()) {
     loginPage.style.left = "-400px";
     registerPage.style.left = "40px";
     movingBtn.style.left = "110px";
-    registerText.style.color = "white";
-    loginText.style.color = "black";
   }
 
   function login() {
     loginPage.style.left = "50px";
     registerPage.style.left = "450px";
     movingBtn.style.left = "0px";
-    registerText.style.color = "black";
-    loginText.style.color = "white";
   }
 } else {
   function register() {
     loginPage.style.left = "-400px";
     registerPage.style.left = "50px";
     movingBtn.style.left = "110px";
-    registerText.style.color = "white";
-    loginText.style.color = "black";
   }
 
   function login() {
     loginPage.style.left = "50px";
     registerPage.style.left = "450px";
     movingBtn.style.left = "0px";
-    registerText.style.color = "black";
-    loginText.style.color = "white";
   }
 }

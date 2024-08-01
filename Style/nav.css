@@ -62,6 +62,7 @@ nav .navbar .menu {
   align-items: center;
   margin-right: auto;
   gap: 2vw;
+  overflow: hidden;
 }
 .logo {
   margin-right: auto;
@@ -85,7 +86,7 @@ nav .navbar .menu {
 }
 
 #Register {
-  background-color: red;
+  background-color: #ca0022;
   padding: 0.5rem;
   transition: all 0.3s ease;
 }

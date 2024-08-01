@@ -1,5 +1,10 @@
 <?php
 session_start();
+ob_start();
+
+include "Actions/action.php";
+include "Actions/loginAction.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -22,50 +27,6 @@ session_start();
 
 <body>
 
-    <?php
-
-    include 'logcon.php';
-
-    if (isset($_POST['login'])) {
-        $logEmail = $_POST['logEmail'];
-        $logPassword = $_POST['logPassword'];
-
-        $mailSearch = "
-    SELECT * FROM registrations WHERE EMAIL='$logEmail' 
-    ";
-
-        $logQuery = mysqli_query($con, $mailSearch);
-
-        $email_count = mysqli_num_rows($logQuery);
-        if ($email_count) {
-            $logEmail_pass = mysqli_fetch_assoc($logQuery);
-            $fetchedPass = $logEmail_pass['PASSWORD'];
-            $decodePass = password_verify($logPassword, $fetchedPass);
-
-
-            $_SESSION['fName'] = $logEmail_pass['FIRST_NAME'];
-
-            if ($decodePass) {
-    ?>
-                <script>
-                    location.replace("cred.php");
-                </script>
-            <?php
-            } else { ?>
-                <script>
-                    alert('Password Incorrect');
-                </script>
-            <?php
-            }
-        } else {
-            ?>
-            <script>
-                alert('Invalid Email');
-            </script>
-    <?php      }
-    }
-
-    ?>
     <div class="top"></div>
     <label id="overlay" for="sidebar"></label>
     <nav>
@@ -102,11 +63,24 @@ session_start();
                     Register
                 </button>
             </div>
-            <form id="login" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" class="input" method="POST">
-                <input type="text" name="logEmail" class="inputField" placeholder="Email Address" />
-                <input type="password" name="logPassword" class="inputField" placeholder="Password" />
+            <form id="login" class="input" method="POST">
+                <div class="align">
+                    <input type="text" name="logEmail" class="inputField" placeholder="Email Address" required data-parsley-type="email" data-parsley-trigger="keyup" value="<?php echo $_SESSION['emailCookie']; ?>" />
+                    <input type="password" name="logPassword" class="inputField" placeholder="Password" required data-parsley-length="[8, 16]" data-parsley-trigger="keyup" value="<?php echo $_SESSION['passCookie']; ?>" />
+                    <p><span id="link" onclick="location.replace('ForgetPass/recover.php')">Forget Password?</span></p>
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="rememberMe" />
+                            <p> Remember Me</p>
+                        </label>
+                    </div>
+                </div>
                 <button type="submit" class="submit" name="login">Log In</button>
                 <p>Don't Have an Account? <span id="link" onclick="register()">Register Here</span></p>
+                <div class="emailVerified  ">
+                    <p>Email Verified</p>
+                    <ion-icon name="shield-checkmark-outline"></ion-icon>
+                    <p class="smallTxt">Continue Logging In</p>
+                </div>
             </form>
             <form id="validate_form" class="input" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
                 <div class="inputName">
@@ -143,6 +117,11 @@ session_start();
                 </div>
                 <input type="submit" id="submit" class="submit" name="submit" value="Register" />
                 <p>Have an Account? <span id="link" onclick="login()">Log In</span></p>
+                <div class="verifyYourEmail">
+                    <p>Thanks for Registering</p>
+                    <ion-icon name="shield-checkmark-outline"></ion-icon>
+                    <p class="smallTxt">Check Your Inbox for Verification</p>
+                </div>
             </form>
         </div>
     </section>
@@ -174,6 +153,86 @@ session_start();
     <script src="script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        $("#login").parsley();
+    </script>
 </body>
 
 </html>
+
+<?php
+if (isset($_SESSION['flip'])) {
+    if ($_SESSION['flip'] == "invalEmail") {
+?>
+        <script>
+            document.querySelector(".emailVerified").innerHTML = ` <p>Invalid Email</p>
+                    <ion-icon name="bug-outline"></ion-icon>
+                    <p class="smallTxt">Please Check your Email</p>`;
+            $(".emailVerified").addClass("reveal");
+            document.querySelector(".emailVerified").querySelector("ion-icon").style.color = "red";
+            setTimeout(() => {
+                $(".emailVerified").removeClass("reveal");
+            }, 4000);
+        </script>
+    <?php
+    } elseif ($_SESSION['flip'] == "invalPass") {
+    ?>
+        <script>
+            document.querySelector(".emailVerified").innerHTML = ` <p>Invalid Password</p>
+                        <ion-icon name="bug-outline"></ion-icon>
+                        <p class="smallTxt">Please Check your Password</p>`;
+            $(".emailVerified").addClass("reveal");
+            document.querySelector(".emailVerified").querySelector("ion-icon").style.color = "red";
+            setTimeout(() => {
+                $(".emailVerified").removeClass("reveal");
+            }, 4000);
+        </script>
+    <?php
+    } elseif ($_SESSION['flip'] == "passUpdated") {
+    ?>
+        <script>
+            document.querySelector(".emailVerified").innerHTML = ` <p>Password Updated</p>
+                            <ion-icon name="shield-checkmark-outline"></ion-icon>
+                            <p class="smallTxt">You May LogIn</p>`;
+            $(".emailVerified").addClass("reveal");
+            document.querySelector(".emailVerified").querySelector("ion-icon").style.color = "red";
+            setTimeout(() => {
+                $(".emailVerified").removeClass("reveal");
+            }, 4000);
+        </script>
+    <?php
+    } elseif ($_SESSION['flip'] == "error") {
+    ?>
+        <script>
+            document.querySelector(".emailVerified").innerHTML = ` <p>Account Not Updated</p>
+                            <ion-icon name="bug-outline"></ion-icon>
+                            <p class="smallTxt">Please Re-Register</p>`;
+            $(".emailVerified").addClass("reveal");
+            document.querySelector(".emailVerified").querySelector("ion-icon").style.color = "red";
+            setTimeout(() => {
+                $(".emailVerified").removeClass("reveal");
+            }, 4000);
+        </script>
+    <?php
+    } elseif ($_SESSION['flip'] == "yes") {
+    ?>
+        <script>
+            $(".emailVerified").addClass("reveal");
+            setTimeout(() => {
+                $(".emailVerified").removeClass("reveal");
+            }, 5000);
+        </script>
+<?php
+    }
+
+    // Unset the session variable after displaying the message
+    unset($_SESSION['flip']);
+}
+
+if (isset($_POST['rememberMe'])) {
+    echo "yes";
+} else {
+    echo "no";
+}
+die();
