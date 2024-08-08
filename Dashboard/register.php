@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+date_default_timezone_set('Asia/Kolkata');
 if (!isset($_SESSION['isLogin'])) {
     header('location:../Respond/index.php');
     die();

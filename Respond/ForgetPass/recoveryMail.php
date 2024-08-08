@@ -5,6 +5,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 include "../Connect/conn.php";
+include "../Connect/logcon.php";
 
 if (isset($_POST['updatePassword'])) {
 
@@ -24,47 +25,57 @@ if (isset($_POST['updatePassword'])) {
         $userdata = $verify->fetch(PDO::FETCH_ASSOC);
         $first_name = $userdata['FIRST_NAME'];
         $last_name = $userdata['LAST_NAME'];
-        $token = $userdata['TOKEN'];
-        //mail
+        $token = bin2hex(random_bytes(16));
+        $token_hash = hash("sha256", $token);
 
-        //Import PHPMailer classes into the global namespace
-        //These must be at the top of your script, not inside a function
+        date_default_timezone_set('Asia/Kolkata');
+        $expiry = date("Y-m-d H:i:s", time() + 60 * 30);
+
+        $sqlQuery = "UPDATE registrations SET RESET_TOKEN_HASH = '$token_hash', RESET_TOKEN_EXPIRES_AT ='$expiry' WHERE EMAIL = '$email'";
+        $Query = mysqli_query($con, $sqlQuery);
+
+        if ($Query) {
+            //mail
+
+            //Import PHPMailer classes into the global namespace
+            //These must be at the top of your script, not inside a function
 
 
-        //Load Composer's autoloader
-        require '../Source/Exception.php';
-        require '../Source/PHPMailer.php';
-        require '../Source/SMTP.php';
+            //Load Composer's autoloader
+            require '../Source/Exception.php';
+            require '../Source/PHPMailer.php';
+            require '../Source/SMTP.php';
 
-        //Create an instance; passing `true` enables exceptions
-        $mail = new PHPMailer(true);
+            //Create an instance; passing `true` enables exceptions
+            $mail = new PHPMailer(true);
 
-        try {
-            //Server settings                      //Enable verbose debug output
-            $mail->isSMTP();                                            //Send using SMTP
-            $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $mail->Username   = 'tyagidevansh3@gmail.com';                     //SMTP username
-            $mail->Password   = 'rhynppgnkyiqaqnh';                               //SMTP password
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+            try {
+                //Server settings                      //Enable verbose debug output
+                $mail->isSMTP();                                            //Send using SMTP
+                $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+                $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                $mail->Username   = 'tyagidevansh3@gmail.com';                     //SMTP username
+                $mail->Password   = 'rhynppgnkyiqaqnh';                               //SMTP password
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+                $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-            //Recipients
-            $mail->setFrom('tyagidevansh3@gmail.com', 'Contact Form');
-            $mail->addAddress($email, 'By Website');     //Add a recipient
+                //Recipients
+                $mail->setFrom('tyagidevansh3@gmail.com', 'Contact Form');
+                $mail->addAddress($email, 'By Website');     //Add a recipient
 
-            //Content
-            $mail->isHTML(true);                                  //Set email format to HTML
-            $mail->Subject = 'Password Reset';
-            $mail->Body    = "Hi, $first_name $last_name <br> Click here to <b> Reset your Password </b> <br>
+                //Content
+                $mail->isHTML(true);                                  //Set email format to HTML
+                $mail->Subject = 'Password Reset';
+                $mail->Body    = "Hi, $first_name $last_name <br>Click here to<b> Reset your Password </b> <br>
                 http://localhost:8000/Respond/ForgetPass/resetPassword.php?token=$token";
 
 
-            $mail->send();
-            echo 'Message has been sent';
-            $_SESSION['RecoveryMail'] = "Sent";
-        } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                $mail->send();
+                echo 'Message has been sent';
+                $_SESSION['RecoveryMail'] = "Sent";
+            } catch (Exception $e) {
+                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            }
         }
     } else {
         echo 'Email not exist';

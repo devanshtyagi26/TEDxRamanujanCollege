@@ -2,8 +2,26 @@
 
 session_start();
 
-include '../Actions/recoveryAction.php';
+include '../Connect/logcon.php';
 
+$token = $_GET['token'];
+$token_hash = hash("sha256", $token);
+
+$match = "SELECT * FROM registrations WHERE RESET_TOKEN_HASH = '$token_hash'";
+$Query = mysqli_query($con, $match);
+
+$record = mysqli_fetch_assoc($Query); // Fetch the result as an associative array
+if ($record === null) {
+    die("token not found");
+}
+
+
+date_default_timezone_set('Asia/Kolkata');
+if (strtotime($record['RESET_TOKEN_EXPIRES_AT']) <= time()) {
+    die("token has expired");
+}
+
+echo "reached safely";
 ?>
 
 <!DOCTYPE html>
@@ -60,6 +78,7 @@ include '../Actions/recoveryAction.php';
             </div>
             <form id="forget" class="input" method="POST" action="../Actions/recoveryAction.php">
                 <div class="align">
+                    <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
                     <input type="password" name="newPassword" id="newPassword" class="inputField" placeholder="New Password" required data-parsley-length="[8, 16]" data-parsley-trigger="keyup" />
                     <input type="password" name="confirmPassword" id="confirmPassword" class="inputField" placeholder="Confirm Password" data-parsley-equalto="#newPassword" data-parsley-trigger="keyup" required class="form-control">
 

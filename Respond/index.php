@@ -198,7 +198,7 @@ if (isset($_SESSION['flip'])) {
                             <ion-icon name="shield-checkmark-outline"></ion-icon>
                             <p class="smallTxt">You May LogIn</p>`;
             $(".emailVerified").addClass("reveal");
-            document.querySelector(".emailVerified").querySelector("ion-icon").style.color = "red";
+            document.querySelector(".emailVerified").querySelector("ion-icon").style.color = "#0b0";
             setTimeout(() => {
                 $(".emailVerified").removeClass("reveal");
             }, 4000);
