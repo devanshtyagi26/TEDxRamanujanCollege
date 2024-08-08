@@ -19,6 +19,13 @@ if (isset($_POST['login'])) {
 
 
         $_SESSION['fName'] = $logEmail_pass['FIRST_NAME'];
+        $_SESSION['lName'] = $logEmail_pass['LAST_NAME'];
+        $_SESSION['email'] = $logEmail_pass['EMAIL'];
+        $_SESSION['phone'] = $logEmail_pass['PHONE'];
+        $_SESSION['college'] = $logEmail_pass['COLLEGE'];
+        $id = $logEmail_pass['ID'];
+
+
 
         if ($decodePass) {
             if (isset($_POST['rememberMe'])) {
@@ -29,7 +36,7 @@ if (isset($_POST['login'])) {
                 $_SESSION['isLogin'] = "yes";
 ?>
                 <script>
-                    location.replace('../Respond/cred.php');
+                    location.replace('../Dashboard/dashboard.php?id=<?php echo $id; ?>');
                 </script>
             <?php
             } else {
@@ -40,7 +47,7 @@ if (isset($_POST['login'])) {
                 $_SESSION['postData'] = $_POST;
             ?>
                 <script>
-                    location.replace('../Respond/cred.php');
+                    location.replace('../Dashboard/dashboard.php?id=<?php echo $id; ?>');
                 </script>
             <?php
             }

@@ -11,7 +11,8 @@ nav {
 #formSpace {
   height: calc(100vh + 4.6875rem);
   width: 100vw;
-  background: no-repeat url(../Images/BlackBackground.svg);
+  background: no-repeat linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(../Images/RedBackground.svg);
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -23,18 +24,24 @@ nav {
   width: 23.75rem;
   height: 28rem;
   position: relative;
-  background: white;
+  background-color: rgba(26, 27, 29, 0.27);
+  border-radius: 20px;
   padding: 5px;
   overflow: hidden;
+  backdrop-filter: blur(35px);
+  box-shadow: 0 0 61px 0 rgba(0, 0, 0, 0.17), 0 2px 20px 0 rgba(0, 0, 0, 0.59);
 }
 
 .reco {
   width: 23.75rem;
   height: 20rem;
   position: relative;
-  background: white;
+  background-color: rgba(26, 27, 29, 0.27);
+  border-radius: 20px;
   padding: 5px;
   overflow: hidden;
+  backdrop-filter: blur(35px);
+  box-shadow: 0 0 61px 0 rgba(0, 0, 0, 0.17), 0 2px 20px 0 rgba(0, 0, 0, 0.59);
 }
 
 .btnBox {
@@ -43,12 +50,12 @@ nav {
   border-radius: 30px;
   margin: 2rem auto;
   position: relative;
-  box-shadow: 0 0 20px 9px #30cbff3b;
-  background: linear-gradient(to right, #2e9ee0, #3f7fe3);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background: linear-gradient(to right, #eb0028, #910018);
 }
 
 .input {
@@ -65,8 +72,10 @@ nav {
   border-right: 0;
   border-top: 0;
   border-bottom: 1px solid #999;
+  color: white;
   outline: none;
   background: transparent;
+  font-size: 0.8rem;
 }
 
 .inputName {
@@ -82,7 +91,7 @@ nav {
 .submit {
   display: block;
   margin: 1.5rem auto 0.5rem auto;
-  background: linear-gradient(to right, #2e9ee0, #3f7fe3);
+  background: linear-gradient(to right, #eb0028, #910018);
   color: white;
   width: 85%;
   padding: 10px 30px;
@@ -90,6 +99,7 @@ nav {
   border: none;
   outline: none;
   border-radius: 30px;
+  font-size: 1rem;
 }
 
 #forget,
@@ -123,7 +133,8 @@ nav {
 
 #forget p,
 #recovery p {
-  font-size: 0.7rem;
+  color: white;
+  font-size: 0.8rem;
 }
 
 #forget .align p,
@@ -134,7 +145,7 @@ nav {
 
 #forget p #link,
 #recovery p #link {
-  color: #3281ff;
+  color: #eb0028;
   cursor: pointer;
   left: 0 !important;
 }
@@ -183,7 +194,7 @@ nav {
 }
 
 .resPass p {
-  color: black;
+  color: black !important;
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
   font-weight: 200;

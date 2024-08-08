@@ -2,12 +2,13 @@
 
 echo "hii ";
 include '../Connect/logcon.php';
-
+echo  isset($_GET['token']);
 
 if (isset($_POST['newPassword'])) {
     echo "entering";
     if (isset($_GET['token'])) {
         $token = $_GET['token'];
+        $_SESSION['token'] = $_GET['token'];
 
         $newPassword = trim($_POST['newPassword']);
         $confirmPassword = trim($_POST['confirmPassword']);
@@ -39,4 +40,3 @@ if (isset($_POST['newPassword'])) {
 } else {
     echo " not entered";
 }
-

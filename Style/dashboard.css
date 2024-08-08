@@ -1,0 +1,228 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: fixed url(../Images/BlackBackground.svg);
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.dashboard {
+  margin-top: 6.4rem;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 0.5fr;
+  grid-template-rows: 0.6fr 0fr;
+  justify-content: space-around;
+}
+
+.dashboard .navigation {
+  width: 5.3125rem;
+  height: 34.0625rem;
+  flex-shrink: 0;
+  border-radius: 0.98581rem;
+  background: rgba(129, 129, 129, 0.13);
+  backdrop-filter: blur(43.81443405151367px);
+  box-shadow: -15px 17px 17px rgba(10, 10, 10, 0.25);
+  grid-row: 1/3;
+  grid-column: 1/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+.dashboard .navigation a {
+  display: flex;
+  text-decoration: none;
+}
+
+.dashboard .navigation .expand,
+.dashboard .navigation .expandSmall {
+  background-color: #000000a9;
+  position: absolute;
+  z-index: -1;
+  width: 2rem;
+  height: 3rem;
+  border-radius: 20px 10px 10px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.245);
+  opacity: 0;
+  transition: all 0.5s;
+  display: flex;
+  padding-right: 1rem;
+  justify-content: end;
+  align-items: center;
+  color: #fff;
+  font-family: "Noto Sans";
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.dashboard .navigation ion-icon {
+  color: rgba(255, 255, 255, 0.616);
+  font-size: 2rem;
+  --ionicon-stroke-width: 20px;
+  padding: 0.5rem;
+}
+
+.navigation a:hover > ion-icon {
+  color: white;
+}
+.navigation a:hover > .expand {
+  width: 10rem;
+  opacity: 1;
+  border: 1px solid #ca002283;
+  color: #ca0022;
+}
+.navigation a:hover > .expandSmall {
+  width: 8rem;
+  opacity: 1;
+  border: 1px solid #ca002283;
+  color: #ca0022;
+}
+
+.dashboard .hero {
+  width: 33.3125rem;
+  height: 9.8125rem;
+  flex-shrink: 0;
+  border-radius: 0.5rem;
+  background: #141414;
+  font-family: "Noto Sans";
+  grid-row: 1;
+  grid-column: 2/2;
+  margin-right: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 3rem;
+}
+.dashboard .hero h1 {
+  color: #fff;
+  font-size: 2.625rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.dashboard .hero p {
+  color: #fff;
+  font-size: 1.0625rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.dashboard .profilePic {
+  grid-row: 1/3;
+  grid-column: 3/3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-right: 2rem;
+}
+.dashboard .profilePic .photo {
+  width: 14rem;
+  height: 14rem;
+  flex-shrink: 0;
+  background: #141414;
+  border-radius: 200px;
+  color: wheat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+}
+
+.dashboard .profilePic p {
+  color: #ca0022;
+  font-family: "Noto Sans";
+  font-size: 1.3125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.dashboard .personalInfo {
+  width: 33.3125rem;
+  height: 19.25rem;
+  flex-shrink: 0;
+  border-radius: 0.5rem;
+  background: #141414;
+  grid-row: 2/2;
+  grid-column: 2/2;
+  color: white;
+  font-family: "Noto Sans";
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+  justify-content: center;
+  padding: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.dashboard .personalInfo .cred {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-left: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.616);
+}
+
+.dashboard .personalInfo .cred .blocks {
+  display: flex;
+}
+.dashboard .personalInfo .cred .blocks div {
+  width: 70%;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid #ca0022bf;
+  position: relative;
+  top: -4px;
+}
+
+.dashboard .personalInfo .cred .blocks button {
+  margin-left: 2rem;
+  background: #ca0022bf;
+  border: none;
+  outline: none;
+  color: rgb(181, 181, 181);
+  font-size: 1rem;
+  padding: 0.1rem 0.5rem;
+  position: relative;
+  border-radius: 5px;
+}
+
+.dashboard .personalInfo .cred .blocks button a {
+  text-decoration: none !important;
+  color: rgb(181, 181, 181);
+}
+
+.dashboard .admin {
+  display: flex;
+  position: absolute;
+  right: 4rem;
+  bottom: 4rem;
+}
+
+.dashboard .admin button {
+  width: 10rem;
+  height: 100%;
+  color: white;
+  padding: 10px 30px;
+  background: linear-gradient(to right, #eb0028, #910018);
+  border-radius: 30px;
+  font-size: 1rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}

@@ -82,6 +82,7 @@ if (isset($_POST['first_name'])) {
 
                 $mail->send();
                 echo 'Message has been sent';
+                $_SESSION['flip'] = "yes";
             } catch (Exception $e) {
                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
             }

@@ -35,7 +35,7 @@
                 <li><a href="../speakers.html">SPEAKERS</a></li>
                 <li><a href="../team.html">OUR TEAM</a></li>
                 <li><a href="#Contact">SPONSORS</a></li>
-                <li><a href="#">CONTACT US</a></li>
+                <li><a href="index.php" id="current">CONTACT US</a></li>
                 <li id="Register"><a href="../Respond/index.php">REGISTER</a></li>
             </ul>
         </div>

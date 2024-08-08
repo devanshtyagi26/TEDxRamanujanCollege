@@ -1,0 +1,89 @@
+.dashboard .profilePic {
+  grid-row: 1/3;
+  grid-column: 3/3;
+}
+
+.dashboard .imgUpload {
+  width: 35%;
+  aspect-ratio: 2/1;
+  background-color: rgba(26, 27, 29, 0.27);
+  backdrop-filter: blur(35px);
+  box-shadow: 0 0 61px 0 rgba(0, 0, 0, 0.17), 0 2px 20px 0 rgba(0, 0, 0, 0.59);
+  border-radius: 20px;
+  /* border: 2px solid white; */
+  position: absolute;
+  top: 25%;
+  justify-self: center;
+  align-items: center;
+  opacity: 0;
+  transform: scale(0);
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard .imgUpload ion-icon {
+  font-size: 2rem;
+  color: white;
+  margin: 0.5rem;
+  align-self: end;
+  cursor: pointer;
+}
+.dashboard .imgUpload form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+  justify-content: center;
+}
+
+.dashboard .imgUpload form input::file-selector-button {
+  color: black;
+  padding: 0.2rem;
+  border: thin solid grey;
+  border-radius: 3px;
+}
+
+.dashboard .imgUpload form input {
+  color: white;
+  font-size: 1.1rem;
+}
+.dashboard .imgUpload form button {
+  width: 50%;
+  height: 100%;
+  color: white;
+  padding: 10px 30px;
+  background: linear-gradient(to right, #eb0028, #910018);
+  border-radius: 30px;
+  font-size: 1rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.revealImg {
+  animation: expand 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35) 1 forwards;
+}
+
+@keyframes expand {
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* .dashboard .profilePic form input {
+    display: none;
+  } */
+.dashboard .profilePic label {
+  cursor: pointer;
+}
+.dashboard .profilePic button {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.dashboard .profilePic .photo {
+  background-size: cover !important;
+}

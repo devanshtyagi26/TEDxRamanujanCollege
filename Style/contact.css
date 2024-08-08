@@ -13,6 +13,11 @@ nav {
 body {
   overflow-x: hidden;
 }
+
+#current {
+  font-weight: 500;
+}
+
 .layout {
   display: flex;
   margin-top: 3rem;

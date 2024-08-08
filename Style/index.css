@@ -16,6 +16,10 @@ body {
   overflow-x: hidden;
 }
 
+#current {
+  font-weight: 500;
+}
+
 section {
   display: flex;
   height: 100vh;

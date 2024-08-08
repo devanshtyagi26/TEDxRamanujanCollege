@@ -38,3 +38,7 @@ textarea.parsley-error {
 .parsley-equalto {
   color: red;
 }
+
+.hidden {
+  display: none;
+}

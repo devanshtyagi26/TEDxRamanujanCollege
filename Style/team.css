@@ -8,6 +8,10 @@ nav {
   background-color: black !important;
 }
 
+#current {
+  font-weight: 500;
+}
+
 canvas,
 section {
   display: flex;
