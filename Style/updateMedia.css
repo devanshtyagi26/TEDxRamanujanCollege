@@ -2,13 +2,11 @@
   .dashboard {
     width: fit-content;
     justify-content: left;
-    grid-template-rows: 0.5fr 0.9fr 0.9fr 0.21fr;
-    grid-template-columns: 1fr;
+    grid-template-rows: 1.3fr 0.9fr 0.3fr;
     margin-left: 1rem;
     grid-template-areas:
-      "hero    "
-      "picture "
-      "personal"
+      "update"
+      "picture"
       "sidebar ";
   }
   .dashboard .navigation {
@@ -36,16 +34,17 @@
   .dashboard .hero p {
     font-size: 0.78rem;
   }
-  .dashboard .personalInfo {
+  .dashboard .updateInfo {
     gap: 1.2rem;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     width: 17.313rem;
-    height: 9.25rem;
-    padding: 2.3rem 1.5rem;
+    height: 19.25rem;
+    margin: 0;
+    padding: 1rem;
   }
-  .dashboard .personalInfo .cred {
-    gap: 0.5rem;
+  .inputField {
     font-size: 0.8rem;
+    width: 93%;
   }
   .dashboard .profilePic .photo {
     width: 10rem;
@@ -54,6 +53,21 @@
   .dashboard .profilePic p {
     font-size: 1.1rem;
     font-weight: 300;
+  }
+  #validate_form {
+    align-self: baseline;
+    margin-top: 0.5rem;
+  }
+  .input {
+    width: 17.5rem;
+  }
+  .submit {
+    width: 53%;
+    font-size: 0.9rem;
+  }
+  #validate_form p,
+  #login p {
+    font-size: 0.7rem;
   }
   .dashboard .imgUpload {
     width: 88%;

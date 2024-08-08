@@ -1,0 +1,31 @@
+@media (max-width: 28.125rem) {
+  #members {
+    padding: 3rem;
+    justify-content: flex-start;
+  }
+
+  #members h1 {
+    font-size: 2rem;
+    line-height: 6rem;
+  }
+
+  .layout {
+    gap: 2.5rem;
+  }
+  .layout .box {
+    width: 17rem;
+  }
+  .layout .box .glass {
+    height: 19rem;
+  }
+
+  .box .glass h3 {
+    font-size: 0.9rem;
+    font-weight: 100;
+  }
+
+  .box .glass h3 span {
+    font-weight: 100;
+    font-size: 0.5em;
+  }
+}

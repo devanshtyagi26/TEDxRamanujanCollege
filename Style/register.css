@@ -17,13 +17,11 @@ nav {
 #formSpace {
   height: calc(100vh + 4.6875rem);
   width: 100vw;
-  /* background: #1a1b1d; */
-  /* background: no-repeat url(../Images/BlackBackground.svg); */
+  background-size: cover;
   background: no-repeat linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../Images/RedBackground.svg);
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin-top: 4rem; */
 }
 
 #formSpace svg {

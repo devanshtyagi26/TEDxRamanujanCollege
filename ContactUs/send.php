@@ -38,13 +38,14 @@ if (isset($_POST['submit'])) {
 
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'Here is the subject';
+        $mail->Subject = 'Contact Request';
         $mail->Body    = "<b>Sender Name:</b> $name <br> <b>Sender Email:</b> $email <br> <b>Sender Phone Number:</b> $phone <br><br> <b>Message:</b> <br> $message";
 
 
         $mail->send();
-        echo 'Message has been sent';
+        $_SESSION['mailSent'] = "true";
     } catch (Exception $e) {
+        $_SESSION['mailSent'] = "false";
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 }

@@ -47,6 +47,8 @@ if ($resImg === false || empty($resImg['IMAGE'])) {
     <link rel="stylesheet" href="../Style/footer.css" />
     <link rel="stylesheet" href="../Style/imgUpload.css" />
     <link rel="stylesheet" href="../Style/navMedia.css" />
+    <link rel="stylesheet" href="../Style/updateMedia.css" />
+    <link rel="stylesheet" href="../Style/registerMedia.css" />
     <link rel="stylesheet" href="../Style/footerMedia.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="http://parsleyjs.org/dist/parsley.js"></script>

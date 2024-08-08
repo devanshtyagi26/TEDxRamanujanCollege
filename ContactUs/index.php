@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +48,7 @@
             <form id="form" method="POST">
                 <div class="input">
                     <p>Name</p>
-                    <input type="text" name="name" id="name" placeholder="John Doe" required data-parsley-pattern="^[a-zA-Z]+$" data-parsley-trigger="keyup" class="form-control" data-parsley-pattern-message="Enter Valid First Name" />
+                    <input type="text" name="name" id="name" placeholder="John Doe" required data-parsley-pattern="^[a-zA-Z\s'-]+$" data-parsley-trigger="keyup" class="form-control" data-parsley-pattern-message="Enter Valid Name" />
                 </div>
                 <div class="input">
                     <p>E-Mail Address</p>
@@ -118,15 +119,75 @@
     </div>
     <script src="../JavaScript/nav.js"></script>
     <script>
+        const button = document.querySelector("button");
+        const mailAlert = document.querySelector(".mailAlert");
+        const closeBtn = document.querySelector(".cross");
+        const progress = document.querySelector(".progress");
         $("#form").parsley();
+
+
+        function showAlert(message) {
+            document.querySelector(".alertMsg").innerHTML = message;
+            mailAlert.style.display = "flex";
+            progress.style.display = "flex";
+            setTimeout(() => {
+                mailAlert.classList.add("active");
+                progress.classList.add("active");
+            }, 10);
+
+            setTimeout(() => {
+                mailAlert.classList.remove("active");
+            }, 5000);
+
+            setTimeout(() => {
+                progress.classList.remove("active");
+            }, 5300);
+            setTimeout(() => {
+                mailAlert.style.display = "none";
+            }, 5250);
+            setTimeout(() => {
+                progress.style.display = "none";
+            }, 5320);
+        }
+
+        function hideAlert() {
+            mailAlert.classList.remove("active");
+            setTimeout(() => {
+                progress.classList.remove("active");
+            }, 300);
+            setTimeout(() => {
+                progress.style.display = "none";
+            }, 310);
+            setTimeout(() => {
+                mailAlert.style.display = "none";
+            }, 320);
+        }
     </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+
+    <?php
+    include "send.php";
+
+    if (isset($_SESSION['mailSent'])) {
+        if ($_SESSION['mailSent'] === 'true') {
+            echo '<script>
+        showAlert("Mail sent successfully!");
+        console.log("sent");
+        closeBtn.addEventListener("click", hideAlert);
+        </script>';
+            unset($_SESSION['mailSent']);
+        } else if ($_SESSION['mailSent'] === 'false') {
+            echo '<script>
+            showAlert("Check Details");
+            closeBtn.addEventListener("click", hideAlert);
+            </script>';
+            unset($_SESSION['mailSent']);
+        }
+    }
+    ?>
 </body>
 
 </html>
-
-
-<?php
-include "send.php";

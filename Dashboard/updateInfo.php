@@ -119,6 +119,7 @@ if ($resImg === false || empty($resImg['IMAGE'])) {
     <link rel="stylesheet" href="../Style/footer.css" />
     <link rel="stylesheet" href="../Style/imgUpload.css" />
     <link rel="stylesheet" href="../Style/navMedia.css" />
+    <link rel="stylesheet" href="../Style/updateMedia.css" />
     <link rel="stylesheet" href="../Style/footerMedia.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="http://parsleyjs.org/dist/parsley.js"></script>
@@ -159,7 +160,7 @@ if ($resImg === false || empty($resImg['IMAGE'])) {
                 <ion-icon name="create-outline"></ion-icon>
                 <div class="expandSmall">Update</div>
             </a>
-            <a href="">
+            <a href="register.php">
                 <ion-icon name="mail-open-outline"></ion-icon>
                 <div class="expandSmall">Register</div>
             </a>
