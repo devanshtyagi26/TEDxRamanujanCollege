@@ -21,8 +21,6 @@
     letter-spacing: 0.1rem;
     overflow: hidden;
   }
-
-  
 }
 
 @media (max-width: 61.875rem) and (orientation: landscape) {
@@ -85,5 +83,18 @@
   }
   .cell p {
     letter-spacing: 0.1rem;
+  }
+}
+
+@media (max-width: 80rem) {
+  #Home {
+    font-size: 1.1rem;
+    letter-spacing: 1rem;
+  }
+  .heading p {
+    overflow-x: visible;
+  }
+  .countdown {
+    gap: 2vw;
   }
 }

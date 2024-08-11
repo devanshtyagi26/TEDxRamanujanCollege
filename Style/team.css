@@ -135,7 +135,9 @@ section {
 
 /* Fade out effect on hover */
 .glass:hover img,
-.glass:hover #slide1 {
+.glass:hover #slide1,
+.glass.active img,
+.glass.active #slide1 {
   animation: 1s fadeOut 2s forwards;
 }
 
@@ -145,7 +147,8 @@ section {
   opacity: 0;
 }
 
-.glass:hover .intro {
+.glass:hover .intro,
+.glass.active .intro {
   animation: 1s fadeIn 2s forwards;
 }
 

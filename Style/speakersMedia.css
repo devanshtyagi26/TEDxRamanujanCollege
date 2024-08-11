@@ -62,3 +62,9 @@
     height: 22.125rem;
   }
 }
+
+@media (max-width: 80rem) {
+  .block {
+    margin: 3rem 5rem;
+  }
+}

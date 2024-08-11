@@ -119,7 +119,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const setupEventListeners = () => {
-    if (window.matchMedia("(max-width: 768px)").matches) {
+    if (
+      window.matchMedia("(max-width: 768px)").matches ||
+      window.matchMedia("(max-width: 1280px)").matches
+    ) {
       containers.forEach((container) => {
         const box = container.querySelector(".box");
         const glass = container.querySelector(".glass");
