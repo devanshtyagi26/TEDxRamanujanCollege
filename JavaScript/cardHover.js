@@ -34,6 +34,22 @@ Akash.addEventListener("click", () => {
   panel.querySelector("#title").innerHTML = "Social Worker";
   panel.querySelector("#desc").innerHTML =
     "Empowering through education, Akash Tandon is the co-founder of Pehchaan, a street school uplifting children in slum areas. In 9 years, he has impacted over 2000 underprivileged children. With 10+ years of diverse marketing experience in B2B and B2C sectors, Akash is a true changemaker.";
+  function isMobile() {
+    return window.matchMedia("(max-width: 58.75rem)").matches;
+  }
+
+  if (isMobile()) {
+    panel.querySelector("#name").style.fontSize = "2rem";
+    panel.querySelector("#surname").style.fontSize = "3rem";
+  }
+  function isMobile() {
+    return window.matchMedia("(max-width: 58.75rem)").matches;
+  }
+
+  if (isMobile()) {
+    panel.querySelector("#name").style.fontSize = "2rem";
+    panel.querySelector("#surname").style.fontSize = "3rem";
+  }
 });
 
 Anita.addEventListener("click", () => {
@@ -58,6 +74,14 @@ Anita.addEventListener("click", () => {
   panel.querySelector(
     "#desc"
   ).innerHTML = `Anita Anand is a seasoned clinical therapist, trainer, editor, and artist with over 40 years of experience. With a master's degree in psychology from Ohio University, she specialises in hypnotherapy and crystal healing. Since 2002, Anita has addressed issues like anxiety, depression, and addictions, positively impacting hundreds of lives. Her unique approach blends talk therapy, hypnosis, and writing exercises. She has consulted for UNAIDS, UNDP, UN Women (India), and other organisations, and was featured in the documentary "House of Secrets: The Burari Deaths.”`;
+  function isMobile() {
+    return window.matchMedia("(max-width: 58.75rem)").matches;
+  }
+
+  if (isMobile()) {
+    panel.querySelector("#name").style.fontSize = "2rem";
+    panel.querySelector("#surname").style.fontSize = "3rem";
+  }
 });
 
 Sajju.addEventListener("click", () => {
@@ -82,6 +106,14 @@ Sajju.addEventListener("click", () => {
   panel.querySelector(
     "#desc"
   ).innerHTML = `Supporting startups in their early stages, Sajju Jain is a social entrepreneur who has elevated numerous ventures from garages to a global level, impacting over 150 million people worldwide. He mentors startups in India, the USA, the UK, Singapore, Kenya, and Australia. With 25 years of coaching experience, Sajju has been globally recognized and awarded for his expertise. He aims to empower 10,000 startups over the next decade, transforming the world for the greater good.`;
+  function isMobile() {
+    return window.matchMedia("(max-width: 58.75rem)").matches;
+  }
+
+  if (isMobile()) {
+    panel.querySelector("#name").style.fontSize = "2rem";
+    panel.querySelector("#surname").style.fontSize = "3rem";
+  }
 });
 
 Ananda.addEventListener("click", () => {
@@ -99,6 +131,14 @@ Ananda.addEventListener("click", () => {
   panel.querySelector(
     "#desc"
   ).innerHTML = `Ananda Hota, with over a decade of experience in science and astronomy, is the director of RAD@home, India's first citizen-science research platform in astronomy. He is also a UGC Assistant Professor at UM-DAE CEBS, a member of the International Astronomical Union, and an Associate Member and Education and Public Outreach coordinator at SKA India Consortium. Ananda serves as a scientist at CBS.ac.in and is a member of the Consultative Group of the Principal Scientific Adviser to the Government of India. He leads the Nationwide Inter-University Interdisciplinary Scientists for Society (NIISS) collaboration, involving over 50 scientists in India.`;
+  function isMobile() {
+    return window.matchMedia("(max-width: 58.75rem)").matches;
+  }
+
+  if (isMobile()) {
+    panel.querySelector("#name").style.fontSize = "2rem";
+    panel.querySelector("#surname").style.fontSize = "3rem";
+  }
 });
 
 Soumyadeep.addEventListener("click", () => {
@@ -123,6 +163,14 @@ Soumyadeep.addEventListener("click", () => {
   panel.querySelector(
     "#desc"
   ).innerHTML = `Soumyadeep Mukherjee, a distinguished astro photographer, is currently pursuing his PhD in cognitive linguistics at IIT Kanpur. Notably, he is the first Indian to win the Astronomy Photographer of the Year competition and has over 140 publications in international books and magazines. His work has been featured on renowned platforms such as National Geographic and NASA, earning him multiple APOD awards for his exceptional contributions to the field of astrophotography. He is also a part of a group of astrophotography enthusiasts based in West Bengal known as Astronomers Bangla.`;
+  function isMobile() {
+    return window.matchMedia("(max-width: 58.75rem)").matches;
+  }
+
+  if (isMobile()) {
+    panel.querySelector("#name").style.fontSize = "1.3rem";
+    panel.querySelector("#surname").style.fontSize = "2.2rem";
+  }
 });
 
 Gaurav.addEventListener("click", () => {
@@ -136,8 +184,18 @@ Gaurav.addEventListener("click", () => {
   ).innerHTML = `<img src="Images/SpeakerPhotos/GauravBarhadiya.png" alt="" />`;
   panel.querySelector("#name").innerHTML = "Mr. Gaurav";
   panel.querySelector("#surname").innerHTML = "Barhadiya";
-  panel.querySelector("#title").innerHTML = "Astrophotographer";
+  panel.querySelector("#title").innerHTML =
+    "Herpetologist and <br> Environmental Science <br> Professor";
   panel.querySelector(
     "#desc"
   ).innerHTML = `Gaurav Barhadiya , assistant professor at Delhi University, is an environmental enthusiast who has contributed vastly in the areas of environmental conservation including wildlife preservation, ecology, climate change, etc. He has various international publications in various international journals and has given a number of lectures and talks on several environmental issues including single use plastic, snakes of India, effects of loosing touch with Nature, etc. He continues to enlighten students and empower the less explored studies of the environment.`;
+
+  function isMobile() {
+    return window.matchMedia("(max-width: 58.75rem)").matches;
+  }
+
+  if (isMobile()) {
+    panel.querySelector("#name").style.fontSize = "1.3rem";
+    panel.querySelector("#surname").style.fontSize = "2.2rem";
+  }
 });

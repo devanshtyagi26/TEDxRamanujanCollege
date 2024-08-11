@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=KoHo&family=Rowdies:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=M+PLUS+Rounded+1c&family=Zain:wght@200;300;400;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
 
 * {
   margin: 0;
@@ -20,11 +21,13 @@ body {
 
 #backLayout {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url(../Images/RedBackground.svg) !important;
+    url(../Images/RedBackground.svg);
+  background-size: auto, auto;
   position: fixed;
   height: 100vh;
   width: 100vw;
   z-index: -1;
+  background-size: cover;
 }
 
 nav {
@@ -65,13 +68,16 @@ section {
 
 .fullname {
   color: #fff;
-  font-family: "Rowdies";
-  font-weight: 700;
-  font-style: normal;
+  /* font-family: "Rowdies";
+  font-weight: 700; */
+  /* font-style: normal; */
   font-size: 4rem;
   display: flex;
   flex-direction: column;
   line-height: 4rem;
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 #surname {
