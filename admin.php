@@ -43,7 +43,9 @@ $querypay = mysqli_query($con, $selectQueryPay);
           <th>LAST_NAME</th>
           <th>EMAIL</th>
           <th>PHONE</th>
+          <th>CHOICE</th>
           <th>COLLEGE</th>
+          <th>OCCUPATION</th>
           <th>PASSWORD</th>
           <th>IMAGE</th>
           <th>ADMIN</th>
@@ -64,7 +66,9 @@ $querypay = mysqli_query($con, $selectQueryPay);
             <td><?php echo $res['LAST_NAME']; ?></td>
             <td><?php echo $res['EMAIL']; ?></td>
             <td><?php echo $res['PHONE']; ?></td>
+            <td><?php echo $res['CHOICE']; ?></td>
             <td><?php echo $res['COLLEGE']; ?></td>
+            <td><?php echo $res['OCCUPATION']; ?></td>
             <td><?php echo $res['PASSWORD']; ?></td>
             <td><?php echo $res['IMAGE']; ?></td>
             <td><?php echo $res['ADMIN']; ?></td>
