@@ -41,6 +41,16 @@ nav {
   backdrop-filter: blur(35px);
   box-shadow: 0 0 61px 0 rgba(0, 0, 0, 0.17), 0 2px 20px 0 rgba(0, 0, 0, 0.59);
 }
+.formBox .input-value select {
+  background: none;
+  color: #999;
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 0.5px solid #999;
+  padding: 0.5rem 0;
+}
 
 .btnBox {
   width: 13.75rem;

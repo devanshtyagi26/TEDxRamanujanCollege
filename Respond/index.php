@@ -88,7 +88,7 @@ include "Actions/loginAction.php";
                 <div class="inputName">
                     <div class="block">
                         <div class="input-value">
-                            <input type="text" name="first_name" id="first_name" class="inputField" placeholder="Enter First Name" required data-parsley-pattern="^[a-zA-Z]+$" data-parsley-trigger="keyup" class="form-control" data-parsley-pattern-message="Enter Valid First Name" />
+                            <input type="text" name="first_name" id="first_name" class="inputField" placeholder="First Name" required data-parsley-pattern="^[a-zA-Z]+$" data-parsley-trigger="keyup" class="form-control" data-parsley-pattern-message="Enter Valid First Name" />
                         </div>
                     </div>
                     <div class="block">
@@ -104,7 +104,14 @@ include "Actions/loginAction.php";
                     <input type="text" name="mobilePhone" id="mobilePhone" class="inputField" placeholder="Phone Number" value="" data-parsley-pattern="^(?:\+91|91|0)?[6-9]\d{9}$" data-parsley-pattern-message="Enter Valid Phone Number" data-parsley-trigger="keyup" required class="form-control" />
                 </div>
                 <div class="input-value">
-                    <input type="text" name="college" id="college" class="inputField" placeholder="College Name" required data-parsley-pattern="^[a-zA-Z ]+$" data-parsley-trigger="keyup" class="form-control">
+                    <select id="heard" name="heard" required="" onchange="toggleDiv()">
+                        <option value="">Choose..</option>
+                        <option value="student">Student</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>
+                <div class="input-value choose">
+
                 </div>
                 <div class="input-value">
                     <input type="password" name="password" id="password" class="inputField" placeholder="Password" required data-parsley-length="[8, 16]" data-parsley-trigger="keyup" class="form-control">
@@ -158,6 +165,22 @@ include "Actions/loginAction.php";
 
     <script>
         $("#login").parsley();
+    </script>
+    <script>
+        function toggleDiv() {
+            let value = document.getElementById("heard").value;
+            let div1 = document.querySelector(".choose");
+
+
+            if (value === "student") {
+                div1.innerHTML = `<input type="text" name="college" id="college" class="inputField" placeholder="College Name" required data-parsley-pattern="^[a-zA-Z ]+$" data-parsley-trigger="keyup">`;
+            } else if (value === "others") {
+                div1.innerHTML = `<input type="text" name="occupation" id="occupation" class="inputField" placeholder="Occupation Name" required data-parsley-pattern="^[a-zA-Z ]+$" data-parsley-trigger="keyup">`;
+            } else {
+                div1.innerHTML = ``;
+            }
+
+        }
     </script>
 </body>
 
@@ -232,9 +255,4 @@ if (isset($_SESSION['flip'])) {
     unset($_SESSION['flip']);
 }
 
-if (isset($_POST['rememberMe'])) {
-    echo "yes";
-} else {
-    echo "no";
-}
 die();

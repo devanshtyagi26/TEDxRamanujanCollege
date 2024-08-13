@@ -192,7 +192,11 @@ if ($resAdmin === false || empty($resAdmin['ADMIN'])) {
         </div>
 
         <div class="blocks">
-          <div id="college"><?php echo $res['COLLEGE'] ?></div>
+          <div id="college"><?php if ($res['COLLEGE'] === "NULL") {
+                              echo $res['OCCUPATION'];
+                            } else {
+                              echo $res['COLLEGE'];
+                            } ?></div>
           <button id="change"><a href="updateInfo.php?id=<?php echo $res['ID']; ?>">Update</a></button>
         </div>
       </div>

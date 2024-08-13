@@ -15,8 +15,7 @@ if (isset($_GET['token'])) {
             $_SESSION['flip'] = "yes";
             header('location:../index.php');
         } else {
-            echo "You are logged out";
-            $_SESSION['flip'] = "error";
+            $_SESSION['flip'] = "yes";
             header('location:../index.php');
         }
     } else {

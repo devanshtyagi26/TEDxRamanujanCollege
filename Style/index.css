@@ -42,7 +42,7 @@ section {
 
 .heading {
   display: inline-flex;
-  width: 58vw;
+  width: 63vw;
   gap: 2rem;
 }
 .change {
@@ -147,8 +147,6 @@ section {
   letter-spacing: 0.43rem;
   overflow: hidden;
 }
-
-
 
 #footer {
   padding: 0 0 2rem 0 !important;

@@ -1,8 +1,7 @@
 .dashboard {
   grid-template-columns: 0.1fr 0.6fr 0fr;
   grid-template-rows: 1fr;
-  grid-template-areas:
-    "sidebar update picture";
+  grid-template-areas: "sidebar update picture";
 }
 
 .dashboard .updateInfo {
@@ -132,8 +131,7 @@
   width: 0.7rem;
 }
 
-.verifyYourEmail,
-.emailVerified {
+.updatedCred {
   color: black !important;
   display: flex;
   flex-direction: column;
@@ -155,8 +153,7 @@
   animation: expand 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35) 1 forwards;
 }
 
-.verifyYourEmail p,
-.emailVerified p {
+.updatedCred p {
   color: black !important;
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
@@ -164,13 +161,11 @@
   font-style: normal;
   font-size: 1.3rem !important;
 }
-.verifyYourEmail .smallTxt,
-.emailVerified .smallTxt {
+.updatedCred .smallTxt {
   font-size: 0.9rem !important;
 }
 
-.verifyYourEmail ion-icon,
-.emailVerified ion-icon {
+.updatedCred ion-icon {
   color: #0b0;
   height: 50%;
   width: 50%;

@@ -120,7 +120,11 @@ if ($resImg === false || empty($resImg['IMAGE'])) {
                     <?php echo $res['PHONE'] ?>
                 </div>
                 <div class="input-value">
-                    <?php echo $res['COLLEGE'] ?>
+                    <?php if ($res['COLLEGE'] === "NULL") {
+                        echo $res['OCCUPATION'];
+                    } else {
+                        echo $res['COLLEGE'];
+                    } ?>
                 </div>
                 <div class="checkbox">
                     <label><input type="checkbox" id="check_rules" name="check_rules" required />

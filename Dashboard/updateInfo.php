@@ -18,48 +18,93 @@ $res = mysqli_fetch_array($Query);
 
 
 sleep(5);
+?>
+<script>
+    $(document).ready(function() {
+        $("#validate_form").parsley();
+        $("#validate_form").on("submit", function(event) {
+            event.preventDefault();
+            if ($("#validate_form").parsley().isValid()) {
 
-if (isset($_POST['update'])) {
+                <?php
+                if (isset($_POST['update'])) {
 
-    include "../Respond/Connect/logcon.php";
+                    include "../Respond/Connect/logcon.php";
 
-    $first_name = htmlspecialchars($_POST['first_name']);
-    $last_name = htmlspecialchars($_POST['last_name']);
-    $mobilePhone = htmlspecialchars($_POST['mobilePhone']);
-    $college = htmlspecialchars($_POST['college']);
+                    $first_name = htmlspecialchars($_POST['first_name']);
+                    $last_name = htmlspecialchars($_POST['last_name']);
+                    $mobilePhone = htmlspecialchars($_POST['mobilePhone']);
+
+                    if (isset($_POST['college'])) {
+                        $college = htmlspecialchars($_POST['college']);
 
 
-    $updateAllQuery = "UPDATE registrations SET FIRST_NAME = '$first_name', LAST_NAME = '$last_name', PHONE = '$mobilePhone', COLLEGE = '$college' WHERE ID = $ids";
+                        $updateAllQuery = "UPDATE registrations SET FIRST_NAME = '$first_name', LAST_NAME = '$last_name', PHONE = '$mobilePhone', COLLEGE = '$college' WHERE ID = $ids";
 
-    $Query = mysqli_query($con, $updateAllQuery);
+                        $Query = mysqli_query($con, $updateAllQuery);
 
-    if (!$res) {
-        die('Fetch failed: ' . mysqli_error($con));
-    }
+                        if (!$res) {
+                            die('Fetch failed: ' . mysqli_error($con));
+                        }
 
-    if ($Query) {
-        echo "donerer";
-        echo "<script>
+                        if ($Query) {
+                            echo "donerer";
+                            echo "<script>
         alert('Updated!'); </script>";
-        header('location:updateInfo.php');
-    } else {
-        echo "<script>
+                            header('location:updateInfo.php');
+                        } else {
+                            echo "<script>
         alert('Error!')
         </script>";
-        // header('location:dashboard.php');
-    }
-} else {
-    echo 'error';
-    // header('location:dashboard.php');
-}
+                            // header('location:dashboard.php');
+                        }
+                        $_SESSION['updateInfo'] = "true";
+                    } else if (isset($_POST['occupation'])) {
+                        $occupation = htmlspecialchars($_POST['occupation']);
 
 
+                        $updateAllQuery = "UPDATE registrations SET FIRST_NAME = '$first_name', LAST_NAME = '$last_name', PHONE = '$mobilePhone', OCCUPATION = '$occupation' WHERE ID = $ids";
+
+                        $Query = mysqli_query($con, $updateAllQuery);
+
+                        if (!$res) {
+                            die('Fetch failed: ' . mysqli_error($con));
+                        }
+
+                        if ($Query) {
+                            echo "donerer";
+                            echo "<script>
+        alert('Updated!'); </script>";
+                            header('location:updateInfo.php');
+                        } else {
+                            echo "<script>
+        alert('Error!')
+        </script>";
+                            // header('location:dashboard.php');
+                        }
+                        $_SESSION['updateInfo'] = "true";
+                    }
+                    $_SESSION['updateInfo'] = "true";
+                } else {
+                    echo 'error';
+                    // header('location:dashboard.php');
+                }
+                ?>
+
+            }
+        })
+    })
+</script>
+
+<?php
 if (isset($_POST['imgSubmit'])) {
 
     include "../Respond/Connect/logcon.php";
 
     if ($_FILES['image']['error'] === 4) {
-        echo "<script> alert('Image does not Exist'); </script>";
+        echo "<script>
+    alert('Image does not Exist');
+</script>";
     } else {
         $fileName = $_FILES['image']['name'];
         $fileSize = $_FILES['image']['size'];
@@ -70,9 +115,13 @@ if (isset($_POST['imgSubmit'])) {
         $imgExtns = strtolower(end($imgExtns));
 
         if (!in_array($imgExtns, $validImgExtns)) {
-            echo "<script> alert('Invalid Image Extension'); </script>";
+            echo "<script>
+    alert('Invalid Image Extension');
+</script>";
         } elseif ($fileSize > 1000000) {
-            echo "<script> alert('Image Size is too large'); </script>";
+            echo "<script>
+    alert('Image Size is too large');
+</script>";
         } else {
             $newImgName = uniqid();
             $newImgName .= '.' . $imgExtns;
@@ -83,12 +132,13 @@ if (isset($_POST['imgSubmit'])) {
             $sendQuery = mysqli_query($con, $imgQuery);
             if ($sendQuery) {
                 echo "<script>
-                alert('Image Updated!'); </script>";
+    alert('Image Updated!');
+</script>";
                 header('location:updateInfo.php');
             } else {
                 echo "<script>
-                alert('Image Error!')
-                </script>";
+    alert('Image Error!')
+</script>";
                 // header('location:dashboard.php');
             }
         }
@@ -197,19 +247,32 @@ if ($resImg === false || empty($resImg['IMAGE'])) {
                 <div class="input-value">
                     <input type="text" name="mobilePhone" id="mobilePhone" class="inputField" placeholder="Phone Number" data-parsley-pattern="^(?:\+91|91|0)?[6-9]\d{9}$" data-parsley-pattern-message="Enter Valid Phone Number" data-parsley-trigger="keyup" required value="<?php echo $res['PHONE'] ?>" />
                 </div>
-                <div class="input-value">
-                    <input type="text" name="college" id="college" class="inputField" placeholder="College Name" required data-parsley-pattern="^[a-zA-Z ]+$" data-parsley-trigger="keyup" value="<?php echo $res['COLLEGE'] ?>">
-                </div>
+
+                <?php if ($res['COLLEGE'] === "NULL") {
+                ?>
+                    <div class="input-value">
+                        <input type="text" name="occupation" id="occupation" class="inputField" placeholder="Occupation Name" required data-parsley-pattern="^[a-zA-Z ]+$" data-parsley-trigger="keyup" value="<?php echo $res['OCCUPATION'] ?>">
+                    </div>
+                <?php
+                } else { ?>
+                    <div class="input-value">
+                        <input type="text" name="college" id="college" class="inputField" placeholder="College Name" required data-parsley-pattern="^[a-zA-Z ]+$" data-parsley-trigger="keyup" value="<?php echo $res['COLLEGE'] ?>">
+                    </div>
+                <?php
+                } ?>
+
+
+
                 <div class="checkbox">
                     <label><input type="checkbox" id="check_rules" name="check_rules" required />
                         <p> I Accept the Terms & Conditions</p>
                     </label>
                 </div>
                 <input type="submit" id="submit" class="submit" name="update" value="Update" />
-                <div class="verifyYourEmail">
-                    <p>Thanks for Registering</p>
+                <div class="updatedCred">
+                    <p>Account Updated</p>
                     <ion-icon name="shield-checkmark-outline"></ion-icon>
-                    <p class="smallTxt">Check Your Inbox for Verification</p>
+                    <p class="smallTxt">Register for the Event</p>
                 </div>
             </form>
         </div>
@@ -245,6 +308,8 @@ if ($resImg === false || empty($resImg['IMAGE'])) {
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <script>
+        $("#validate_form").parsley();
+
         function img() {
             document.querySelector(".imgUpload").classList.add("revealImg");
         }
@@ -253,6 +318,39 @@ if ($resImg === false || empty($resImg['IMAGE'])) {
             document.querySelector(".imgUpload").classList.remove("revealImg");
         }
     </script>
+    <?php
+    if (isset($_SESSION['updateInfo'])) {
+        if ($_SESSION['updateInfo'] == "true") {
+    ?>
+            <script>
+                document.querySelector(".updatedCred").innerHTML = ` <p>Account Updated</p>
+                    <ion-icon name="shield-checkmark-outline"></ion-icon>
+                    <p class="smallTxt">Register for the Event</p>`;
+                $(".updatedCred").addClass("reveal");
+                document.querySelector(".updatedCred").querySelector("ion-icon").style.color = "red";
+                setTimeout(() => {
+                    $(".updatedCred").removeClass("reveal");
+                }, 4000);
+            </script>
+        <?php
+
+        } else {
+        ?>
+            <script>
+                document.querySelector(".updatedCred").innerHTML = ` <p>Some Error Occured</p>
+            <ion-icon name="bug-outline"></ion-icon>
+            <p class="smallTxt">Please Try Again</p>`;
+                $(".updatedCred").addClass("reveal");
+                document.querySelector(".updatedCred").querySelector("ion-icon").style.color = "red";
+                setTimeout(() => {
+                    $(".updatedCred").removeClass("reveal");
+                }, 4000);
+            </script>
+    <?php
+        }
+    }
+    unset($_SESSION['updateInfo']);
+    ?>
 </body>
 
 </html>
