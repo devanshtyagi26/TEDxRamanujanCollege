@@ -30,7 +30,7 @@ setInterval(() => {
   }
 }, 2000);
 
-let countDownEnds = new Date("Aug 24, 2024 09:00:00").getTime();
+let countDownEnds = new Date("Jan 26, 2025 09:00:00").getTime();
 let x = setInterval(function () {
   let now = new Date().getTime();
   let distance = countDownEnds - now;
